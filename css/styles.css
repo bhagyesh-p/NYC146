@@ -1,0 +1,122 @@
+* {
+margin: 0;
+padding: 0;
+}
+
+#sideButton{
+   display:none;
+}
+
+.seasons{
+  display: flex;
+  flex-direction: row;
+}
+
+.prices{
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+.seasonBlocks{
+  height: 100vh;
+  width: 25vw;
+  transition: transform .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font: 5vw impact, sans-serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.priceBlocks{
+  height: 100vh;
+  width: 33.333vw;
+  transition: transform .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font: 5vw impact, sans-serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+
+#summerDiv{
+  background-color: red;
+  background: url('../images/summer.jpg') repeat;
+  background-size: 100%;
+}
+#summerDiv:hover{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+}
+
+
+
+#winterDiv{
+  background-color: blue;
+  background: url('../images/winter.jpg') repeat;
+  background-size: 100%;
+}
+#winterDiv:hover{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+}
+
+
+
+#fallDiv{
+  background-color: orange;
+  background: url('../images/fall.jpg') repeat;
+  background-size: 100%;
+}
+#fallDiv:hover{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+}
+
+
+
+#springDiv{
+  background-color: green;
+  background: url('../images/spring.jpg') repeat;
+  background-size: 100%;
+}
+#springDiv:hover{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+}
+
+
+
+#cheapDiv{
+  background-color: #cd7f32;
+}
+#cheapDiv:hover{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+}
+
+
+
+#fairDiv{
+  background-color: silver;
+}
+#fairDiv:hover{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+}
+
+
+
+#expensiveDiv{
+  background-color: gold;
+}
+#expensiveDiv:hover{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+}
