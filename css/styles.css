@@ -1,27 +1,26 @@
+/* 
+  Ryan Adoni, Bhagyesh Patel, Chris Tan, Rohan Krishnakumar
+  I pledge my honor that I have abided by the Stevens Honor System.
+*/
+
 * {
 margin: 0;
 padding: 0;
 }
 
 #sideButton{
-   display:none;
+   display: none;
 }
 
 .seasons{
   display: flex;
-  flex-direction: row;
 }
 
 .prices{
   display: flex;
-  flex-direction: row;
 }
 
-
-
 .seasonBlocks{
-  height: 100vh;
-  width: 25vw;
   transition: transform .2s;
   display: flex;
   align-items: center;
@@ -32,8 +31,6 @@ padding: 0;
 }
 
 .priceBlocks{
-  height: 100vh;
-  width: 33.333vw;
   transition: transform .2s;
   display: flex;
   align-items: center;
@@ -44,69 +41,31 @@ padding: 0;
 }
 
 
-
-#summerDiv{
-  background-color: red;
-  background: url('../images/summer.jpg') repeat;
-  background-size: 100%;
-}
-#summerDiv:hover{
-  box-shadow: 0 2px 4px rgba(0,0,0,.2);
-  transform: scale(1.1,1.1);
-}
-
-
-
-#winterDiv{
-  background-color: blue;
-  background: url('../images/winter.jpg') repeat;
-  background-size: 100%;
-}
-#winterDiv:hover{
-  box-shadow: 0 2px 4px rgba(0,0,0,.2);
-  transform: scale(1.1,1.1);
-}
-
-
-
-#fallDiv{
-  background-color: orange;
-  background: url('../images/fall.jpg') repeat;
-  background-size: 100%;
-}
-#fallDiv:hover{
-  box-shadow: 0 2px 4px rgba(0,0,0,.2);
-  transform: scale(1.1,1.1);
-}
-
-
-
 #springDiv{
-  background-color: green;
+  color: white;
+  text-decoration: none;
   background: url('../images/spring.jpg') repeat;
   background-size: 100%;
 }
-#springDiv:hover{
-  box-shadow: 0 2px 4px rgba(0,0,0,.2);
-  transform: scale(1.1,1.1);
+#summerDiv{
+  color: white;
+  text-decoration: none;
+  background: url('../images/summer.jpg') repeat;
+  background-size: 100%;
 }
-
-
-
-#cheapDiv{
-  background-color: #cd7f32;
+#fallDiv{
+  color: white;
+  text-decoration: none;
+  background: url('../images/fall.jpg') repeat;
+  background-size: 100%;
 }
-#cheapDiv:hover{
-  box-shadow: 0 2px 4px rgba(0,0,0,.2);
-  transform: scale(1.1,1.1);
+#winterDiv{
+  color: white;
+  text-decoration: none;
+  background: url('../images/winter.jpg') repeat;
+  background-size: 100%;
 }
-
-
-
-#fairDiv{
-  background-color: silver;
-}
-#fairDiv:hover{
+#springDiv:hover, #summerDiv:hover, #fallDiv:hover, #winterDiv:hover{
   box-shadow: 0 2px 4px rgba(0,0,0,.2);
   transform: scale(1.1,1.1);
 }
@@ -114,9 +73,178 @@ padding: 0;
 
 
 #expensiveDiv{
+  color: white;
+  text-decoration: none;
   background-color: gold;
 }
-#expensiveDiv:hover{
+#cheapDiv{
+  color: white;
+  text-decoration: none;
+  background-color: #cd7f32;
+}
+#fairDiv{
+  color: white;
+  text-decoration: none;
+  background-color: silver;
+}
+#cheapDiv:hover, #fairDiv:hover, #expensiveDiv:hover{
   box-shadow: 0 2px 4px rgba(0,0,0,.2);
   transform: scale(1.1,1.1);
 }
+
+
+
+.navbar{
+  display: flex;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  justify-content: left;
+  background-color: #D0D0D0;
+  border-radius: 4px;
+  font: 3vw impact, sans-serif;;
+}
+
+.home-link{
+  text-decoration: none;
+}
+.home-link:hover{
+  color: white;
+}
+
+
+
+.activity{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  background-color: #BABCBE;
+  border: solid black;
+  border-radius: 5px;
+  overflow-wrap: break-word;
+}
+
+.activity ul{
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.activity-title{
+  text-decoration: none;
+}
+.activity-title:hover{
+  color: white;
+}
+
+.activity-image{
+  margin: 1vh 1vw 1vh 1vw;
+  width: 80%;
+  height: auto;
+  border-radius: 2px;
+  border-style: solid;
+}
+
+
+
+.container h1, p{
+  padding-top: 5vh;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  overflow-wrap: break-word;
+}
+
+
+
+/* Desktop View */
+@media only screen and (min-width: 999px) {
+  .seasons{
+    flex-direction: row;
+  }
+  .seasonBlocks{
+    height: 100vh;
+    width: 25vw;
+  }
+
+  .prices{
+    flex-direction: row;
+  }
+  .priceBlocks{
+    height: 100vh;
+    width: 33.33vw;
+  }
+
+  .activity ul{
+    flex-direction: row;
+    padding: 0px 2vw 0px 2vw;
+  }
+
+  .activity li{
+    width: 33.33%;
+    height: auto;
+  }
+}
+
+/* Mobile View */
+@media only screen and (max-width: 399px) {
+  .seasons{
+    flex-direction: column;
+  }
+  .seasonBlocks{
+    height: 25vh;
+    width: 100vw;
+  }
+
+  .prices{
+    flex-direction: column;
+  }
+  .priceBlocks{
+    height: 33.33vh;
+    width: 100vw;
+  }
+
+  .activity ul{
+    flex-direction: column;
+    padding: 2vh 2vw 2vh 2vw;
+  }
+  .activity li{
+    padding: 10px 0px 10px 0px;
+    height: 33.33%;
+    width: auto;
+  }
+}
+
+/* Tablet View */
+@media only screen and (max-width: 998px) and (min-width: 400px) {
+  .seasons{
+    flex-direction: column;
+  }
+  .seasonBlocks{
+    height: 25vh;
+    width: 100vw;
+  }
+
+  .prices{
+    flex-direction: column;
+  }
+  .priceBlocks{
+    height: 33.33vh;
+    width: 100vw;
+  }
+
+  .activity ul{
+    flex-direction: column;
+    padding: 2vh 2vw 2vh 2vw;
+  }
+  .activity li{
+    padding: 10px 0px 10px 0px;
+    height: 33.33%;
+    width: auto;
+  }
+}
+
