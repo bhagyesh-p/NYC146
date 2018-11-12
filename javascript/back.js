@@ -1,3 +1,6 @@
+// Ryan Adoni, Bhagyesh Patel, Chris Tan, Rohan Krishnakumar
+// I pledge my honor that I have abided by the Stevens Honor System.
+
 // we need onload due to the window not having a body till later,
 // which causes an issues as we want to hid the scroll background
 
