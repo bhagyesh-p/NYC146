@@ -1,4 +1,4 @@
-/* 
+/*
   Ryan Adoni, Bhagyesh Patel, Chris Tan, Rohan Krishnakumar
   I pledge my honor that I have abided by the Stevens Honor System.
 */
@@ -50,8 +50,8 @@ padding: 0;
 #summerDiv{
   color: white;
   text-decoration: none;
-  background: url('../images/summer.jpg') repeat;
-  background-size: 100%;
+  background: url('../images/summer.gif') repeat;
+  background-size: cover;
 }
 #fallDiv{
   color: white;
@@ -247,4 +247,3 @@ padding: 0;
     width: auto;
   }
 }
-

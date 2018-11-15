@@ -8,7 +8,17 @@
 //if it has to do with animtions
 window.onload = () => {
   document.body.style.overflow = "hidden";
-
+  ///http://jsfiddle.net/m87SY/8/
+  $(function() {
+        $("#summerDiv").hover(
+            function() {
+                $(this).attr("src", "../images/summer.gif");
+            },
+            function() {
+                $(this).attr("src", "staticImg.gif");
+            }
+        );
+    });
 
 
 
