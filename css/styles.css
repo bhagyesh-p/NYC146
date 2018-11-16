@@ -3,10 +3,36 @@
   Ryan Adoni, Bhagyesh Patel, Chris Tan, Rohan Krishnakumar
   I pledge my honor that I have abided by the Stevens Honor System.
 */
-#preload-01
+
+/*
+  Main color ways:
+  #c9c9c9
+  #e3e3e3
+  #9ad3de
+  #89bdd3
+
+*/
+
 * {
 margin: 0;
 padding: 0;
+}
+
+#frontPage{
+    background-color: #c9c9c9;
+    height: 100vh;
+    z-index: 100;
+    font-size: 700%;
+    color: #e3e3e3;
+}
+#messageFront1{
+
+}
+#messageFront2{
+  display: none;
+}
+#messageFront3{
+  display: none;
 }
 
 #sideButton{
