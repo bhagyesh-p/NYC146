@@ -73,7 +73,7 @@ padding: 0;
   text-decoration: none;
   background: url('../images/spring.gif');
   background-size: cover;
-  animation: spring 1.5s infinite steps(1);
+  animation: spring 3s infinite steps(1);
   animation-play-state: runnning;
 }
 @keyframes spring {
@@ -131,7 +131,7 @@ padding: 0;
   text-decoration: none;
   background-image: url('../images/summerIndv/frame_00_delay-0.08s.gif');
   background-size: cover;
-  animation: summer 1.5s infinite steps(1);
+  animation: summer 3s infinite steps(1);
   animation-play-state: runnning;
 }
 @keyframes summer {
@@ -213,7 +213,7 @@ padding: 0;
   text-decoration: none;
   background: url('../images/winterIndv/frame_00_delay-0.06s.gif') ;
   background-size: cover;
-  animation: winter 1s infinite steps(1);
+  animation: winter 2s infinite steps(1);
   animation-play-state: runnning;
 }
 @keyframes winter {
