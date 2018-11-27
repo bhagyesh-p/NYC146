@@ -1,6 +1,32 @@
 //Ryan Adoni, Bhagyesh Patel, Chris Tan, Rohan Krishnakumar
 // I pledge my honor that I have abided by the Stevens Honor System.
 
+class Post {
+  //name,info, image location, link,link caption,image caption
+  let name = "";
+  let info = "";
+  let imageCaption = "";
+  let webLink = "";
+  let linkCaption = "";
+  let imageCaption = "";
+
+  constructor(name,info, imageLocation, webLink, linkCaption, imageCaption) {
+    this.name = name;
+    this.info = info;
+    this.imageCaption = imageCaption;
+    this.webLink = link;
+    this.linkCaption = linkCaption;
+    this.imageCaption = imageCaption;
+  }
+
+  build(){
+    alert(this.name);
+  }
+
+
+
+}
+
 // we need onload due to the window not having a body till later,
 // which causes an issues as we want to hid the scroll background
 
@@ -43,7 +69,8 @@ window.onload = () => {
             alert("error with fadeing of item: " + s)
         }
     }
-
+    let place = new Post("John",1,1,1,1,1,);
+    place.build();
 
 
 }
