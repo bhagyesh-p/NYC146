@@ -42,14 +42,7 @@ class Post {
     img.title = this._imageCaption;
     img.alt = "error";
 
-    console.log(h1);
-    console.log(h2);
-    console.log(a);
-    console.log(smallListItem1);
-    console.log(img);
-    console.log(ul);
-    console.log(div);
-    console.log(largeListItem);
+
 
     h1.appendChild(a);
     smallListItem1.appendChild(h1);
@@ -60,8 +53,11 @@ class Post {
     ul.appendChild(smallListItem3);
     div.appendChild(ul);
     largeListItem.appendChild(div);
+    console.log(largeListItem);
 
-    document.getElementById("resultList").appendChild(largeListItem);
+    parent.document.getElementById('resultList').appendChild(largeListItem);
+
+
   }
 }
 
@@ -72,7 +68,11 @@ class Post {
 //if it has to do with animtions
 
 window.onload = () => {
-  document.body.style.overflow = "hidden";
+  // if its the clicking option pages disable the scrolling
+  if ( window.location.href.indexOf("index.html") != -1||window.location.href.indexOf("money.html") != -1 ) {
+    document.body.style.overflow = "hidden";
+  }
+
   // fade in and out the messages at the beginning
   // only occurs if we have the specific items on the page
   try {
@@ -164,6 +164,6 @@ window.onload = () => {
   } finally {
   }
   let place = new Post("NEW THING", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
-
+  place.build();
 
 }
