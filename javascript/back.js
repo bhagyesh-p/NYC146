@@ -157,14 +157,16 @@ window.onload = () => {
     });
   } catch (e) {} finally {}
 
-  let place = new Post("NEW THING", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
+  let sc = new Post("cheap", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
+  let sf = new Post("fair", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
+  let se = new Post("expensive", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
 
   // index 1 is cheap, index 2 is fair, index 3 is expensive
 
   var springlist = [
-    ["sc"],
-    ["sf"],
-    ["se"]
+    [sc],
+    [sf],
+    [se]
   ];
   var summerlist = [
     ["ssc"],
@@ -222,12 +224,14 @@ window.onload = () => {
 
 
 
-def buildpage(use):
+function buildpage(use){
   for(i =0;i<use.length;i++){
-    use[i].build;
+    use[i].build();
   }
+}
 
 
+buildpage(use);
 
 place.build();
 
