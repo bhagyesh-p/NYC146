@@ -53,7 +53,6 @@ class Post {
     ul.appendChild(smallListItem3);
     div.appendChild(ul);
     largeListItem.appendChild(div);
-    console.log(largeListItem);
 
     parent.document.getElementById('resultList').appendChild(largeListItem);
 
@@ -220,10 +219,13 @@ window.onload = () => {
     use = winterlist[2];
   }
 }
-console.log(localStorage.getItem("winter"));
-console.log(use);
 
 
+
+def buildpage(use):
+  for(i =0;i<use.length;i++){
+    use[i].build;
+  }
 
 
 
