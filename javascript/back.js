@@ -5,9 +5,9 @@ class Post {
 
   constructor(name, info, imageLocation, webLink, linkCaption, imageCaption) {
     this._name = name,
-      this._info = info,
-      this._imageLocation = imageLocation,
-      this._webLink = webLink;
+    this._info = info,
+    this._imageLocation = imageLocation,
+    this._webLink = webLink;
     this._linkCaption = linkCaption;
     this._imageCaption = imageCaption;
   }

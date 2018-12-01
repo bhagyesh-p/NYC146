@@ -22,8 +22,12 @@ padding: 0;
     background-color: #c9c9c9;
     height: 100vh;
     z-index: 100;
-    font-size: 700%;
+    font-size: 10vw;
     color: #e3e3e3;
+    display: flex;
+    justify-content: center;
+    padding: 10vh 10vw 25vh 10vw;
+    margin: 0px;
 }
 #messageFront1{
 
