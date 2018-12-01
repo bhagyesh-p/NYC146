@@ -53,7 +53,6 @@ class Post {
     ul.appendChild(smallListItem3);
     div.appendChild(ul);
     largeListItem.appendChild(div);
-    console.log(largeListItem);
 
     parent.document.getElementById('resultList').appendChild(largeListItem);
 
@@ -69,7 +68,7 @@ class Post {
 
 window.onload = () => {
   // if its the clicking option pages disable the scrolling
-  if ( window.location.href.indexOf("index.html") != -1||window.location.href.indexOf("money.html") != -1 ) {
+  if (window.location.href.indexOf("index.html") != -1 || window.location.href.indexOf("money.html") != -1) {
     document.body.style.overflow = "hidden";
   }
 
@@ -117,7 +116,7 @@ window.onload = () => {
 
   // if the season divs are on the page then use this code, else ignore it
   try {
-    document.getElementById("springDiv").addEventListener('click', function(){
+    document.getElementById("springDiv").addEventListener('click', function() {
       localStorage.setItem("spring", "true");
     });
     document.getElementById("summerDiv").addEventListener('click', function() {
@@ -129,9 +128,7 @@ window.onload = () => {
     document.getElementById("winterDiv").addEventListener('click', function() {
       localStorage.setItem("winter", "true");
     });
-  } catch (e) {
-  } finally {
-  }
+  } catch (e) {} finally {}
 
   // if the price divs are on the page then use this code, else ignore it
   try {
@@ -144,11 +141,9 @@ window.onload = () => {
     document.getElementById("expensiveDiv").addEventListener('click', function() {
       localStorage.setItem("expensive", "true");
     });
-  } catch (e) {
-  } finally {
-  }
+  } catch (e) {} finally {}
 
-//set all the season and price values to be false
+  //set all the season and price values to be false
   try {
     document.getElementById("back").addEventListener('click', function() {
       localStorage.setItem("spring", "false");
@@ -160,10 +155,84 @@ window.onload = () => {
       localStorage.setItem("fair", "false");
       localStorage.setItem("expensive", "false");
     });
-  } catch (e) {
-  } finally {
+  } catch (e) {} finally {}
+
+  let sc = new Post("cheap", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
+  let sf = new Post("fair", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
+  let se = new Post("expensive", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
+
+  // index 1 is cheap, index 2 is fair, index 3 is expensive
+
+  var springlist = [
+    [sc],
+    [sf],
+    [se]
+  ];
+  var summerlist = [
+    ["ssc"],
+    ["ssf"],
+    ["sse"]
+  ];
+  var falllist = [
+    ["fc"],
+    ["ff"],
+    ["fe"]
+  ];
+  var winterlist = [
+    ["wc"],
+    ["wf"],
+    ["we"]
+  ];
+
+// to be used to see what list we want to use
+  let use = [];
+  if (localStorage.getItem("spring") == "true" ){
+    console.log("spring");
+  if (localStorage.getItem("cheap") == "true" ) {
+    use = springlist[0];
+  } else if (localStorage.getItem("fair") == "true" ) {
+    use = springlist[1];
+  } else if (localStorage.getItem("expensive") == "true" ) {
+    use = springlist[2];
   }
-  let place = new Post("NEW THING", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
-  place.build();
+} else if (localStorage.getItem("summer") == "true" ) {
+  console.log("summer");
+  if (localStorage.getItem("cheap") == "true" ) {
+    use = summerlist[0];
+  } else if (localStorage.getItem("fair") == "true" ) {
+    use = summerlist[1];
+  } else if (localStorage.getItem("expensive") == "true" ) {
+    use = summerlist[2];
+  }
+} else if (localStorage.getItem("fall") == "true" ) {
+  if (localStorage.getItem("cheap") == "true" ) {
+    use = falllist[0];
+  } else if (localStorage.getItem("fair") == "true" ) {
+    use = falllist[1];
+  } else if (localStorage.getItem("expensive") == "true" ) {
+    use = falllist[2];
+  }
+} else if (localStorage.getItem("winter") == "true" ) {
+  if (localStorage.getItem("cheap") == "true" ) {
+    use = winterlist[0];
+  } else if (localStorage.getItem("fair") == "true" ) {
+    use = winterlist[1];
+  } else if (localStorage.getItem("expensive") == "true" ) {
+    use = winterlist[2];
+  }
+}
+
+
+
+function buildpage(use){
+  for(i =0;i<use.length;i++){
+    use[i].build();
+  }
+}
+
+
+buildpage(use);
+
+place.build();
 
 }
