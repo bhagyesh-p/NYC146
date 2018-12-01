@@ -157,31 +157,71 @@ window.onload = () => {
     });
   } catch (e) {} finally {}
 
-  let sc = new Post("cheap", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
-  let sf = new Post("fair", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
-  let se = new Post("expensive", "ITS SUPER COOL", "../images/stacks.jpg", "www.google.com", "CLICK THIS TO GO TO WEBSITE", "cool image");
+  // cheap spring posts
+  let sc1 = new Post("The Met Museum", "The famous Met Museum, the largest museuem in the US.", "../images/themet.jpg", "https://www.metmuseum.org/", "CLICK THIS TO GO TO WEBSITE", "The Met Museum");
+  let sc2 = new Post("The Shops at Columbus Circle", "One of the best malls in Manhattan with over three floors of shops and resturants.", "../images/shops_at_columbus.jpg", "WEB_SITE", "http://www.theshopsatcolumbuscircle.com/", "The Shops at Columbus Circle");
+  let sc3 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
+
+  // fair spring posts
+
+  // expensive spring posts
+
+
+  // cheap summer posts
+  let ssc1 = new Post("Pier A Park", "A great park on Pier with a gazebo, a great lawn, and a place to fish.", "../images/pier-A-park.jpg", "https://www.hobokennj.gov/location/pier-a-park", "CLICK THIS TO GO TO WEBSITE", "Picture of Pier A Park");
+  let ssc2 = new Post("Hoboken Farmers' Market", "Farmers from all over the Garden State come to the corner of 13th Street & Hudson in Hoboken to offer their freshest and the most delicious products.  Open July to November", "../images/Farmers'_Market.jpg", "http://hobokenfarmersmarket.com/", "CLICK THIS TO GO TO WEBSITE", "Picture of fruits at farmers' market");
+  let ssc3 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
+
+  // fair summer posts
+
+  // expensive summer posts
+
+
+  // cheap fall posts
+  let fc1 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
+  
+  // fair fall posts
+
+  // expensive fall posts
+
+
+  // cheap winter posts
+  let wc1 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
+  
+  // fair winter posts
+
+  // expensive winter posts
+
+
+  // restaurants
+  let r1 = new Post("Stacks Pancake House & Smokehouse BBQ", "Serving 22 different kinds of pancakes and other breakfast and BBQ items, Stacks is a must go if you are in the mood for a sweet treat anytime of the day if you are in Hoboken.", "../images/stacks.jpg", "http://www.stackspancakehouse.net/", "CLICK THIS TO GO TO WEBSITE", "some pancakes");
+  let r2 = new Post("Benny Tudino's Pizzeria", "Home of the largest slice of pizza for over 50 years.  Come in in to get a delicious New York style anytime of the year.", "../images/bennys.jpg", "http://bennytudinos.com/", "CLICK THIS TO GO TO WEBSITE", "a pizza pie and the owner");
+  let r3 = new Post("Makai Poke Co.", "Simple counter serve making build-your-own, Hawaiian-style sushi bowls, salads & sushi burritos.", "../images/makai.jpg", "http://makaipokeco.com/", "CLICK THIS TO GO TO WEBSITE", "a bowl meal item");
+  let r4 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
+ 
+
 
   // index 1 is cheap, index 2 is fair, index 3 is expensive
 
   var springlist = [
-    [sc],
-    [sf],
-    [se]
+    [r1, r2, r3, ssc1, sc1, sc2],
+    [sc2],
+    [sc2]
   ];
   var summerlist = [
-    ["ssc"],
-    ["ssf"],
-    ["sse"]
+    [r1, r2, r3, ssc1, sc1, ssc2],
+    [ssc2, sc2],
+    [sc2]
   ];
   var falllist = [
-    ["fc"],
-    ["ff"],
-    ["fe"]
+    [r1, r2, r3, sc1, ssc2, sc2],
+    [ssc2, sc2],
+    [sc2]
   ];
   var winterlist = [
-    ["wc"],
-    ["wf"],
-    ["we"]
+    [r1, r2, r3, sc1, sc2],
+    [sc2],
+    [sc2]
   ];
 
 // to be used to see what list we want to use
@@ -233,6 +273,5 @@ function buildpage(use){
 
 buildpage(use);
 
-place.build();
 
 }
