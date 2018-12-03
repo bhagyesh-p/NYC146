@@ -182,14 +182,23 @@ window.onload = () => {
   //// TODO:  let example = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
 
   let all1 = new Post("K-Town", "Ethnic Korean enclave in Midtown Manhattan. Featrues over 150 businesses, ranging from small resturants and beauty salons to large branches of Korean banking conglomerates." , "../images/ktown.jpg", "https://www.whatshouldwedo.com/blog/koreatown-nyc/", "CLICK THIS TO GO TO WEBSITE", "Glimpse of K-town at night");
+  let all2 = new Post("FAO Schwarz", "\FAO Schwarz is an American toy store. The company is known for its unique high-end toys, life-sized stuffed animals, dolls, and games.", "../images/fao.jpg", "https://faoschwarz.com/", "CLICK THIS TO GO TO WEBSITE", "One of the many toy sections in the store");
 
+  //resturant that are all and cheap/fair
+  let wRcf = new Post("Blue Smoke", "Blue Smoke is a barbecue restaurant rooted in the culinary traditions of the American South and raised in New York City.", "../images/blue.jpg", "https://www.bluesmoke.com/", "CLICK THIS TO GO TO WEBSITE", "People enjoying a multitude of southern dishes");
+
+
+  // resturants that are all time fair / expensive
+  let anyRfe = new Post("Il Corso", "Fresh pastas dominate a traditional Italian menu in a modern setting with a neighborhood feel.", "../images/corso.jpg", "http://www.ilcorsorestaurant.com/", "CLICK THIS TO GO TO WEBSITE", "Many people having the amazing food at the resturant");
+  let anyRfe2 = new Post("Tao Restaurant", "A resturant that specializes in the fusion of asian food in lower manhattan. Very lively with amazing service and food.", "../images/tao.jpg", "https://taorestaurant.com/", "CLICK THIS TO GO TO WEBSITE", "Inside of the very decorous resturant. ");
 
   //all cheap
   let allc1 = new Post("Museum of Modern Art", "Come check out one of the largest and most influential museums of modern art in the world, featuring approximately 300,000 books and exhibition catalogs, over 1,000 periodical titles, and over 40,000 files of ephemera about individual artists and groups. The museum offers a free admission program UNIQLO Free Friday Nights- which provides free access to all exhibitions from 4:00 PM to 8:00 PM every Friday throughout the year. ", "../images/moma.jpg", "https://www.moma.org/", "CLICK THIS TO GO TO WEBSITE", "Exhibition in the museum featuring modern art");
   let allc2 = new Post("The Gravity Vault", "A popular rock climbing gym featuring 14,000+ square feet of climbing, 40+ foot climbing walls, 45-60 top rope stations and bouldering. ", "../images/gravityvault.jpg", "https://www.gravityvault.com/locations/hoboken-nj", "CLICK THIS TO GO TO WEBSITE", "Walls to climb");
 
+
  // all fair
- let allf1 = new Post("Nat. Geo. Encounter", "Times Square tourists will be able to take a digital dive deep into the heart of the sea without even getting damp at the National Geographic Encounter.", "../images/natneo.jpg", "https://natgeoencounter.com", "CLICK THIS TO GO TO WEBSITE", "The digital sting ray exhibit in the encounter");
+  let allf1 = new Post("Nat. Geo. Encounter", "Times Square tourists will be able to take a digital dive deep into the heart of the sea without even getting damp at the National Geographic Encounter.", "../images/natneo.jpg", "https://natgeoencounter.com", "CLICK THIS TO GO TO WEBSITE", "The digital sting ray exhibit in the encounter");
 
  //all expenseive
    let alle1 = new Post("Gucci Brookfield", "One of the best known luxury brand known for modern, Italian-crafted leather goods, apparel & accessories for men & women.", "../images/gucci.jpg", "https://www.gucci.com/us/en/", "CLICK THIS TO GO TO WEBSITE", "Inside of the store");
@@ -246,24 +255,24 @@ window.onload = () => {
   // index 1 is cheap, index 2 is fair, index 3 is expensive
 
   var springlist = [
-    [r1, r2, r3, ssc1, sc1, sc2,sc4,allc1,allc2,all1],
-    [sc2,allf1,sf1,all1],
-    [sc2,alle2,alle1,all1]
+    [r1, r2, r3, ssc1, sc1, sc2,sc4,allc1,allc2,all1,all2],
+    [sc2,allf1,sf1,all1,all2,anyRfe,anyRfe2],
+    [sc2,alle2,alle1,all1,all2,anyRfe,anyRfe2]
   ];
   var summerlist = [
-    [r1, r2, r3, ssc1, sc1, ssc2,sc4,allc1,allc2,all1],
-    [r1, r2, r3, ssc1, sc1, sc2,sf1,allf1,all1],
-    [r1, r2, r3, ssc1, alle2, alle1,all1]
+    [r1, r2, r3, ssc1, sc1, ssc2,sc4,allc1,allc2,all1,all2],
+    [r1, r2, r3, ssc1, sc1, sc2,sf1,allf1,all1,all2,anyRfe,anyRfe2],
+    [r1, r2, r3, ssc1, alle2, alle1,all1,all2,anyRfe,anyRfe2]
   ];
   var falllist = [
-    [r1, r2, r3, sc1, ssc2, sc2,allc1,allc2,all1],
-    [ssc2, sc2,allf1,all1],
-    [sc2,sc2,alle2,alle1,all1]
+    [r1, r2, r3, sc1, ssc2, sc2,allc1,allc2,all1,all2],
+    [ssc2, sc2,allf1,all1,all2,anyRfe,anyRfe2],
+    [sc2,sc2,alle2,alle1,all1,all2,anyRfe,anyRfe2]
   ];
   var winterlist = [
-    [r1, r2, r3, sc1, sc2,allc1,allc2,all1,wc1],
-    [sc2,allf1,all1,wf1],
-    [sc2,alle2,alle1,all1]
+    [r1, r2, r3, sc1, sc2,allc1,allc2,all1,wc1,all2,wRcf],
+    [sc2,allf1,all1,wf1,all2,anyRfe,anyRfe2,wRcf],
+    [sc2,alle2,alle1,all1,all2,anyRfe,anyRfe2]
   ];
 
 // to be used to see what list we want to use
@@ -321,7 +330,7 @@ function buildpage(use){
       // add to the list to be used
       nums.push(a);
     }
-
+    console.log(use.lenght);
     //build the actual site
     for(let i =0;i<nums.length;i++){
       use[nums[i]].build();
