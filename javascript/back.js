@@ -163,7 +163,7 @@ window.onload = () => {
     });
   } catch (e) {} finally {}
 
-  //set all the season and price values to be false
+  //set all the season and price values to be false this is to reset all values
   try {
     document.getElementById("back").addEventListener('click', function() {
       localStorage.setItem("spring", "false");
@@ -199,7 +199,7 @@ window.onload = () => {
 
   // cheap fall posts
   let fc1 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
-  
+
   // fair fall posts
 
   // expensive fall posts
@@ -207,7 +207,7 @@ window.onload = () => {
 
   // cheap winter posts
   let wc1 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
-  
+
   // fair winter posts
 
   // expensive winter posts
@@ -218,25 +218,25 @@ window.onload = () => {
   let r2 = new Post("Benny Tudino's Pizzeria", "Home of the largest slice of pizza for over 50 years.  Come in in to get a delicious New York style anytime of the year.", "../images/bennys.jpg", "http://bennytudinos.com/", "CLICK THIS TO GO TO WEBSITE", "a pizza pie and the owner");
   let r3 = new Post("Makai Poke Co.", "Simple counter serve making build-your-own, Hawaiian-style sushi bowls, salads & sushi burritos.", "../images/makai.jpg", "http://makaipokeco.com/", "CLICK THIS TO GO TO WEBSITE", "a bowl meal item");
   let r4 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
- 
+
 
 
   // index 1 is cheap, index 2 is fair, index 3 is expensive
 
   var springlist = [
     [r1, r2, r3, ssc1, sc1, sc2],
-    [sc2],
-    [sc2]
+    [sc2,sc2,sc2],
+    [sc2,sc2,sc2]
   ];
   var summerlist = [
     [r1, r2, r3, ssc1, sc1, ssc2],
-    [ssc2, sc2],
-    [sc2]
+    [r1, r2, r3, ssc1, sc1, sc2],
+    [r1, r2, r3, ssc1, sc1, sc2]
   ];
   var falllist = [
     [r1, r2, r3, sc1, ssc2, sc2],
-    [ssc2, sc2],
-    [sc2]
+    [ssc2, sc2,sc2],
+    [sc2,sc2,sc2]
   ];
   var winterlist = [
     [r1, r2, r3, sc1, sc2],
@@ -283,10 +283,27 @@ window.onload = () => {
 }
 
 
-
 function buildpage(use){
-  for(i =0;i<use.length;i++){
-    use[i].build();
+  if (window.location.href.indexOf("results.html") != -1 ) {
+    var nums = [];
+
+
+    // picks events randomly to set to the site
+    for (let i = 0;i<3;i++){
+      let a = Math.floor(Math.random() * ((use.length-1) - 0 + 1)) + 0;
+
+      //if the event is in the list to be used regen a new event
+      while (nums.includes(a)){
+        a = Math.floor(Math.random() * ((use.length-1) - 0 + 1)) + 0;
+      }
+      // add to the list to be used
+      nums.push(a);
+    }
+
+    //build the actual site
+    for(let i =0;i<nums.length;i++){
+      use[nums[i]].build();
+    }
   }
 }
 
