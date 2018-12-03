@@ -177,10 +177,23 @@ window.onload = () => {
     });
   } catch (e) {} finally {}
 
+
+  // format   constructor(name, info, imageLocation, webLink, linkCaption, imageCaption) {
+  //// TODO:  let example = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
+
+  //all cheap
+  let allc1 = new Post("Museum of Modern Art", "Come check out one of the largest and most influential museums of modern art in the world, featuring approximately 300,000 books and exhibition catalogs, over 1,000 periodical titles, and over 40,000 files of ephemera about individual artists and groups. The museum offers a free admission program UNIQLO Free Friday Nights- which provides free access to all exhibitions from 4:00 PM to 8:00 PM every Friday throughout the year. ", "../images/moma.jpg", "https://www.moma.org/", "CLICK THIS TO GO TO WEBSITE", "Exhibition in the museum featuring modern art");
+  let allc2 = new Post("The Gravity Vault", "A popular rock climbing gym featuring 14,000+ square feet of climbing, 40+ foot climbing walls, 45-60 top rope stations and bouldering. ", "../images/gravityvault.jpg", "https://www.gravityvault.com/locations/hoboken-nj", "CLICK THIS TO GO TO WEBSITE", "Walls to climb");
+
+ // all fair
+
+ //all expenseive
+
   // cheap spring posts
   let sc1 = new Post("The Met Museum", "The famous Met Museum, the largest museuem in the US.", "../images/themet.jpg", "https://www.metmuseum.org/", "CLICK THIS TO GO TO WEBSITE", "The Met Museum");
-  let sc2 = new Post("The Shops at Columbus Circle", "One of the best malls in Manhattan with over three floors of shops and resturants.", "../images/shops_at_columbus.jpg", "https://www.theshopsatcolumbuscircle.com/", "http://www.theshopsatcolumbuscircle.com/", "The Shops at Columbus Circle");
-  let sc3 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
+  let sc2 = new Post("The Shops at Columbus Circle", "One of the best malls in Manhattan with over three floors of shops and resturants.", "../images/shops_at_columbus.jpg", "https://www.theshopsatcolumbuscircle.com/", "CLICK THIS TO GO TO WEBSITE", "The Shops at Columbus Circle");
+  let sc4 = new Post("Statue of Liberty","The Statue of Liberty is a colossal neoclassical sculpture on Liberty Island in New York Harbor in New York City, in the United States. The copper statue, a gift from the people of France to the people of the United States, was designed by French sculptor Frédéric Auguste Bartholdi and built by Gustave Eiffel.","../images/statue.jpg", "https://www.nps.gov/stli/planyourvisit/index.htm", "visit their website", "The Statue for the water that surrounds it");
+
 
   // fair spring posts
 
@@ -224,22 +237,22 @@ window.onload = () => {
   // index 1 is cheap, index 2 is fair, index 3 is expensive
 
   var springlist = [
-    [r1, r2, r3, ssc1, sc1, sc2],
+    [r1, r2, r3, ssc1, sc1, sc2,sc4,allc1,allc2],
     [sc2,sc2,sc2],
     [sc2,sc2,sc2]
   ];
   var summerlist = [
-    [r1, r2, r3, ssc1, sc1, ssc2],
+    [r1, r2, r3, ssc1, sc1, ssc2,sc4,allc1,allc2],
     [r1, r2, r3, ssc1, sc1, sc2],
     [r1, r2, r3, ssc1, sc1, sc2]
   ];
   var falllist = [
-    [r1, r2, r3, sc1, ssc2, sc2],
+    [r1, r2, r3, sc1, ssc2, sc2,allc1,allc2],
     [ssc2, sc2,sc2],
     [sc2,sc2,sc2]
   ];
   var winterlist = [
-    [r1, r2, r3, sc1, sc2],
+    [r1, r2, r3, sc1, sc2,allc1,allc2],
     [sc2],
     [sc2]
   ];
