@@ -54,10 +54,25 @@ class Post {
     div.appendChild(ul);
     largeListItem.appendChild(div);
 
-    parent.document.getElementById('resultList').appendChild(largeListItem);
+    let resultList = parent.document.getElementById('resultList');
+    resultList.insertBefore(largeListItem, resultList.childNodes[0]);
 
 
   }
+}
+
+function handleFormSubmit(event) {
+  // This next line prevents the reload of the form
+  event.preventDefault();
+
+  var formName = document.getElementById("formName").value;
+  var formDescription = document.getElementById("formDescription").value;
+  var formImg = document.getElementById("formImg").value;
+  var formWebsite = document.getElementById("formWebsite").value;
+  var formImgDescription = document.getElementById("formImgDescription").value;
+
+  var post = new Post(formName, formDescription, formImg, formWebsite, "CLICK THIS TO GO TO WEBSITE", formImgDescription);
+  post.build();
 }
 
 // we need onload due to the window not having a body till later,
@@ -70,6 +85,11 @@ window.onload = () => {
   // if its the clicking option pages disable the scrolling
   if (window.location.href.indexOf("index.html") != -1 || window.location.href.indexOf("money.html") != -1) {
     document.body.style.overflow = "hidden";
+  }
+
+  if(window.location.href.indexOf("results.html") != -1)
+  {
+    document.getElementById('addForm').addEventListener('submit', handleFormSubmit);
   }
 
   // fade in and out the messages at the beginning
@@ -159,7 +179,7 @@ window.onload = () => {
 
   // cheap spring posts
   let sc1 = new Post("The Met Museum", "The famous Met Museum, the largest museuem in the US.", "../images/themet.jpg", "https://www.metmuseum.org/", "CLICK THIS TO GO TO WEBSITE", "The Met Museum");
-  let sc2 = new Post("The Shops at Columbus Circle", "One of the best malls in Manhattan with over three floors of shops and resturants.", "../images/shops_at_columbus.jpg", "WEB_SITE", "http://www.theshopsatcolumbuscircle.com/", "The Shops at Columbus Circle");
+  let sc2 = new Post("The Shops at Columbus Circle", "One of the best malls in Manhattan with over three floors of shops and resturants.", "../images/shops_at_columbus.jpg", "https://www.theshopsatcolumbuscircle.com/", "http://www.theshopsatcolumbuscircle.com/", "The Shops at Columbus Circle");
   let sc3 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
 
   // fair spring posts
