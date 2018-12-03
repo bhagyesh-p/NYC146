@@ -181,11 +181,15 @@ window.onload = () => {
   // format   constructor(name, info, imageLocation, webLink, linkCaption, imageCaption) {
   //// TODO:  let example = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
 
+  let all1 = new Post("K-Town", "Ethnic Korean enclave in Midtown Manhattan. Featrues over 150 businesses, ranging from small resturants and beauty salons to large branches of Korean banking conglomerates." , "../images/ktown.jpg", "https://www.whatshouldwedo.com/blog/koreatown-nyc/", "CLICK THIS TO GO TO WEBSITE", "Glimpse of K-town at night");
+
+
   //all cheap
   let allc1 = new Post("Museum of Modern Art", "Come check out one of the largest and most influential museums of modern art in the world, featuring approximately 300,000 books and exhibition catalogs, over 1,000 periodical titles, and over 40,000 files of ephemera about individual artists and groups. The museum offers a free admission program UNIQLO Free Friday Nights- which provides free access to all exhibitions from 4:00 PM to 8:00 PM every Friday throughout the year. ", "../images/moma.jpg", "https://www.moma.org/", "CLICK THIS TO GO TO WEBSITE", "Exhibition in the museum featuring modern art");
   let allc2 = new Post("The Gravity Vault", "A popular rock climbing gym featuring 14,000+ square feet of climbing, 40+ foot climbing walls, 45-60 top rope stations and bouldering. ", "../images/gravityvault.jpg", "https://www.gravityvault.com/locations/hoboken-nj", "CLICK THIS TO GO TO WEBSITE", "Walls to climb");
 
  // all fair
+ let allf1 = new Post("Nat. Geo. Encounter", "Times Square tourists will be able to take a digital dive deep into the heart of the sea without even getting damp at the National Geographic Encounter.", "../images/natneo.jpg", "https://natgeoencounter.com", "CLICK THIS TO GO TO WEBSITE", "The digital sting ray exhibit in the encounter");
 
  //all expenseive
    let alle1 = new Post("Gucci Brookfield", "One of the best known luxury brand known for modern, Italian-crafted leather goods, apparel & accessories for men & women.", "../images/gucci.jpg", "https://www.gucci.com/us/en/", "CLICK THIS TO GO TO WEBSITE", "Inside of the store");
@@ -240,24 +244,24 @@ window.onload = () => {
   // index 1 is cheap, index 2 is fair, index 3 is expensive
 
   var springlist = [
-    [r1, r2, r3, ssc1, sc1, sc2,sc4,allc1,allc2],
-    [sc2,sc2,sf1],
-    [sc2,alle2,alle1]
+    [r1, r2, r3, ssc1, sc1, sc2,sc4,allc1,allc2,all1],
+    [sc2,allf1,sf1,all1],
+    [sc2,alle2,alle1,all1]
   ];
   var summerlist = [
-    [r1, r2, r3, ssc1, sc1, ssc2,sc4,allc1,allc2],
-    [r1, r2, r3, ssc1, sc1, sc2,sf1],
-    [r1, r2, r3, ssc1, alle2, alle1]
+    [r1, r2, r3, ssc1, sc1, ssc2,sc4,allc1,allc2,all1],
+    [r1, r2, r3, ssc1, sc1, sc2,sf1,allf1,all1],
+    [r1, r2, r3, ssc1, alle2, alle1,all1]
   ];
   var falllist = [
-    [r1, r2, r3, sc1, ssc2, sc2,allc1,allc2],
-    [ssc2, sc2,sc2],
-    [sc2,sc2,alle2,alle1]
+    [r1, r2, r3, sc1, ssc2, sc2,allc1,allc2,all1],
+    [ssc2, sc2,allf1,all1],
+    [sc2,sc2,alle2,alle1,all1]
   ];
   var winterlist = [
-    [r1, r2, r3, sc1, sc2,allc1,allc2],
-    [sc2],
-    [sc2,alle2,alle1]
+    [r1, r2, r3, sc1, sc2,allc1,allc2,all1],
+    [sc2,allf1,all1],
+    [sc2,alle2,alle1,all1]
   ];
 
 // to be used to see what list we want to use
