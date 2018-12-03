@@ -226,9 +226,11 @@ window.onload = () => {
 
 
   // cheap winter posts
-  let wc1 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
+  let exwc = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
+  let wc1 = new Post("The Rockefeller Center Tree Lighting", "New York City’s favorite Christmas Tree will be lit the first week of December, and will remain lit until early January. Don’t miss this beloved holiday event!", "../images/tree.jpg", "https://www.rockefellercenter.com/whats-happening/2018/11/28/2018-rockefeller-center-christmas-tree/", "CLICK THIS TO GO TO WEBSITE", "The massive tree in front of Rockefeller center");
 
   // fair winter posts
+  let wf1 = new Post("The Rink at Rockefeller Center", "the heart of Midtown, steps from Times Square and the Theater District, The Rink at Rockefeller Center is a New York City tradition that everyone can enjoy.", "../images/rockefeller.jpg", "https://therinkatrockcenter.com/", "CLICK THIS TO GO TO WEBSITE", "People skating at the seasonal rink");
 
   // expensive winter posts
 
@@ -259,8 +261,8 @@ window.onload = () => {
     [sc2,sc2,alle2,alle1,all1]
   ];
   var winterlist = [
-    [r1, r2, r3, sc1, sc2,allc1,allc2,all1],
-    [sc2,allf1,all1],
+    [r1, r2, r3, sc1, sc2,allc1,allc2,all1,wc1],
+    [sc2,allf1,all1,wf1],
     [sc2,alle2,alle1,all1]
   ];
 
