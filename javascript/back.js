@@ -188,6 +188,8 @@ window.onload = () => {
  // all fair
 
  //all expenseive
+   let alle1 = new Post("Gucci Brookfield", "One of the best known luxury brand known for modern, Italian-crafted leather goods, apparel & accessories for men & women.", "../images/gucci.jpg", "https://www.gucci.com/us/en/", "CLICK THIS TO GO TO WEBSITE", "Inside of the store");
+   let alle2 = new Post("Saks Fifth Ave", "Saks Fifth Avenue is an American chain of luxury department stores owned by the oldest commercial corporation in North America, the Hudson's Bay Company", "../images/saks.jpg", "https://www.saksfifthavenue.com/Entry.jsp", "CLICK THIS TO GO TO WEBSITE", "Inside of Saks Fifth Ave, in the mens deparetment");
 
   // cheap spring posts
   let sc1 = new Post("The Met Museum", "The famous Met Museum, the largest museuem in the US.", "../images/themet.jpg", "https://www.metmuseum.org/", "CLICK THIS TO GO TO WEBSITE", "The Met Museum");
@@ -196,6 +198,7 @@ window.onload = () => {
 
 
   // fair spring posts
+  let sf1 = new Post("Top of the Rock", "Observatory on top of Rockefeller Center, with an ocean-liner style design, offering city views.", "../images/toprock.jpg", "https://www.topoftherocknyc.com/", "CLICK THIS TO GO TO WEBSITE", "View of the NYC sky line from rockefeller center");
 
   // expensive spring posts
 
@@ -238,23 +241,23 @@ window.onload = () => {
 
   var springlist = [
     [r1, r2, r3, ssc1, sc1, sc2,sc4,allc1,allc2],
-    [sc2,sc2,sc2],
-    [sc2,sc2,sc2]
+    [sc2,sc2,sf1],
+    [sc2,alle2,alle1]
   ];
   var summerlist = [
     [r1, r2, r3, ssc1, sc1, ssc2,sc4,allc1,allc2],
-    [r1, r2, r3, ssc1, sc1, sc2],
-    [r1, r2, r3, ssc1, sc1, sc2]
+    [r1, r2, r3, ssc1, sc1, sc2,sf1],
+    [r1, r2, r3, ssc1, alle2, alle1]
   ];
   var falllist = [
     [r1, r2, r3, sc1, ssc2, sc2,allc1,allc2],
     [ssc2, sc2,sc2],
-    [sc2,sc2,sc2]
+    [sc2,sc2,alle2,alle1]
   ];
   var winterlist = [
     [r1, r2, r3, sc1, sc2,allc1,allc2],
     [sc2],
-    [sc2]
+    [sc2,alle2,alle1]
   ];
 
 // to be used to see what list we want to use
@@ -304,7 +307,7 @@ function buildpage(use){
     // picks events randomly to set to the site
     for (let i = 0;i<3;i++){
       let a = Math.floor(Math.random() * ((use.length-1) - 0 + 1)) + 0;
-
+      console.log(a);
       //if the event is in the list to be used regen a new event
       while (nums.includes(a)){
         a = Math.floor(Math.random() * ((use.length-1) - 0 + 1)) + 0;
