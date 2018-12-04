@@ -214,6 +214,7 @@ window.onload = () => {
   //resturant that are all and cheap/fair
   let wRcf = new Post("Blue Smoke", "Blue Smoke is a barbecue restaurant rooted in the culinary traditions of the American South and raised in New York City.", "../images/blue.jpg", "https://www.bluesmoke.com/", "CLICK THIS TO GO TO WEBSITE", "People enjoying a multitude of southern dishes");
 
+  let wsc = new Post("Central Park", "Come check out one of the most famous parks in the world! Set in the middle of bustling Manhattan, its grounds serve as a safe haven, not only for athletes, daydreamers, musicians, and strollers, but also for teems of migratory birds each year.  One can spend an entire peaceful day roaming its grounds, gazing upon nearly 50 fountains, monuments, and sculptures or admiring its 36 bridges and arches.", "../images/centralpark.jpg", "http://www.centralparknyc.org/", "CLICK THIS TO GO TO WEBSITE", "Central park fountain");
 
   // resturants that are all time fair / expensive
   let anyRfe = new Post("Il Corso", "Fresh pastas dominate a traditional Italian menu in a modern setting with a neighborhood feel.", "../images/corso.jpg", "http://www.ilcorsorestaurant.com/", "CLICK THIS TO GO TO WEBSITE", "Many people having the amazing food at the resturant");
@@ -235,9 +236,15 @@ window.onload = () => {
   let sc1 = new Post("The Met Museum", "The famous Met Museum, the largest museuem in the US.", "../images/themet.jpg", "https://www.metmuseum.org/", "CLICK THIS TO GO TO WEBSITE", "The Met Museum");
   let sc2 = new Post("The Shops at Columbus Circle", "One of the best malls in Manhattan with over three floors of shops and resturants.", "../images/shops_at_columbus.jpg", "https://www.theshopsatcolumbuscircle.com/", "CLICK THIS TO GO TO WEBSITE", "The Shops at Columbus Circle");
   let sc4 = new Post("Statue of Liberty", "The Statue of Liberty is a colossal neoclassical sculpture on Liberty Island in New York Harbor in New York City, in the United States. The copper statue, a gift from the people of France to the people of the United States, was designed by French sculptor Frédéric Auguste Bartholdi and built by Gustave Eiffel.", "../images/statue.jpg", "https://www.nps.gov/stli/planyourvisit/index.htm", "visit their website", "The Statue for the water that surrounds it");
+  let sc5 = new Post("Movies in New York City parks", "More than 150 free film screenings are planned for city parks this summer. Grab a chair and head to the nearest park to take in a movie on your picnic blanket around 8 p.m.", "../images/movie.jpg", "https://www.nycgovparks.org/events/free_summer_movies", "CLICK THIS TO GO TO WEBSITE", "People enjoying old cartoons and movies");
 
   // fair spring posts
   let sf1 = new Post("Top of the Rock", "Observatory on top of Rockefeller Center, with an ocean-liner style design, offering city views.", "../images/toprock.jpg", "https://www.topoftherocknyc.com/", "CLICK THIS TO GO TO WEBSITE", "View of the NYC sky line from rockefeller center");
+  let sf2 = new Post("The Orchid Show", "The Orchid Show is a display of floral arrangements and artistic installations at Enid A. Haupt Conservatory plus evening entertainment.", "../images/orchid.jpg", "https://www.nybg.org/event/the-orchid-show/", "CLICK THIS TO GO TO WEBSITE", "One of the beautiful art works at the event");
+  let sf3 = new Post("Sakura Matsuri Cherry Blossom Festival", "Sakura Matsuri offers over 60 events and performances that celebrate traditional and contemporary Japanese culture. The festival celebrates the Japanese cultural tradition of enjoying each moment of the cherry blossom season.", "../images/Blossom.jpg", "https://www.showclix.com/event/sakura-matsuri-20181324746", "CLICK THIS TO GO TO WEBSITE", "The many trees that have blossomed in the festival");
+
+  //spring / fall expensive
+  let sfe1 = new Post("New York Fashion", "New York Fashion Week, is a semi-annual series of events when international fashion collections are shown to buyers, the press, and the general public.", "../images/fashion.jpg", "http://nyfw.com/", "CLICK THIS TO GO TO WEBSITE", "The Givenchy fashion show");
 
   // cheap summer posts
   let ssc1 = new Post("Pier A Park", "A great park on Pier with a gazebo, a great lawn, and a place to fish.", "../images/pier-A-park.jpg", "https://www.hobokennj.gov/location/pier-a-park", "CLICK THIS TO GO TO WEBSITE", "Picture of Pier A Park");
@@ -263,6 +270,9 @@ window.onload = () => {
 
   // fair winter posts
   let wf1 = new Post("The Rink at Rockefeller Center", "the heart of Midtown, steps from Times Square and the Theater District, The Rink at Rockefeller Center is a New York City tradition that everyone can enjoy.", "../images/rockefeller.jpg", "https://therinkatrockcenter.com/", "CLICK THIS TO GO TO WEBSITE", "People skating at the seasonal rink");
+  let wf2 = new Post("Holiday Train Show", "Enchanting model trains zip through a display of more than 175 New York landmarks, each re-created with bark, leaves, and other natural materials—all under the twinkling glow of the Enid A. Haupt Conservatory.", "../images/train.jpg", "https://www.nybg.org/event/holiday-train-show/", "CLICK THIS TO GO TO WEBSITE", "The brooklyn bridge at the train show");
+
+  let we1 = new Post("George Balanchine's The Nutcracker", "Dancers, musicians, stagehands and children come together to put on the best christmas show.", "../images/nutcracker.jpg", "https://www.nycballet.com/Ballets/N/George-Balanchines-The-Nutcracker.aspx", "CLICK THIS TO GO TO WEBSITE", "One of the acts from the show");
 
   // restaurants
   let r1 = new Post("Stacks Pancake House & Smokehouse BBQ", "Serving 22 different kinds of pancakes and other breakfast and BBQ items, Stacks is a must go if you are in the mood for a sweet treat anytime of the day if you are in Hoboken.", "../images/stacks.jpg", "http://www.stackspancakehouse.net/", "CLICK THIS TO GO TO WEBSITE", "some pancakes");
@@ -274,9 +284,9 @@ window.onload = () => {
   // index 1 is cheap, index 2 is fair, index 3 is expensive
 
   var springlist = [
-    [r1, r2, r3, ssc1, sc1, sc2, sc4, allc1, allc2, all1, all2],
-    [sc2, allf1, sf1, all1, all2, anyRfe, anyRfe2,allf2],
-    [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2]
+    [r1, r2, r3, ssc1, sc1, sc2, sc4, allc1, allc2, all1, all2,wsc,sc5],
+    [sc2, allf1, sf1, all1, all2, anyRfe, anyRfe2,allf2,sf2,sf3],
+    [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2,sfe1]
   ];
   var summerlist = [
     [r1, r2, r3, ssc1, sc1, ssc2, sc4, allc1, allc2, all1, all2, ssc3],
@@ -286,12 +296,12 @@ window.onload = () => {
   var falllist = [
     [r1, r2, r3, sc1, ssc2, sc2, allc1, allc2, all1, all2, fcf1],
     [ssc2, sc2, allf1, all1, all2, anyRfe, anyRfe2, fcf1, fef1,allf2],
-    [sc2, sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, fef1,fe1]
+    [sc2, sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, fef1,fe1,sfe1]
   ];
   var winterlist = [
-    [r1, r2, r3, sc1, sc2, allc1, allc2, all1, wc1, all2, wRcf, wc2],
-    [sc2, allf1, all1, wf1, all2, anyRfe, anyRfe2, wRcf,allf2],
-    [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2]
+    [r1, r2, r3, sc1, sc2, allc1, allc2, all1, wc1, all2, wRcf, wc2,wsc],
+    [sc2, allf1, all1, wf1, all2, anyRfe, anyRfe2, wRcf,allf2,wf2],
+    [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2,we1]
   ];
 
   // to be used to see what list we want to use
