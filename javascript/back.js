@@ -46,7 +46,7 @@ class Post {
         img.className = "activity-image";
         img.src = this._imageLocation;
         img.alt = this._imageCaption;
-        img.title = this._imageCaption; 
+        img.title = this._imageCaption;
 
         div.addEventListener("mouseover", function() { div.style.backgroundColor = "grey"});
         div.addEventListener("mouseleave", function() { div.style.backgroundColor = "#BABCBE"});
@@ -82,6 +82,7 @@ function handleFormSubmit(event) {
     var price = document.getElementById("priceSelector").value;
 
     var post = new Post(formName, formDescription, formImg, formWebsite, "CLICK THIS TO GO TO WEBSITE", formImgDescription, season, price);
+
     post.build();
 }
 
@@ -271,35 +272,47 @@ window.onload = () => {
         if (localStorage.getItem("spring") == "true") {
             console.log("spring");
             if (localStorage.getItem("cheap") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the spring for a low cost";
                 use = springlist[0];
             } else if (localStorage.getItem("fair") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the spring for a fair cost";
                 use = springlist[1];
             } else if (localStorage.getItem("expensive") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the spring for a shiny penny";
                 use = springlist[2];
             }
         } else if (localStorage.getItem("summer") == "true") {
             console.log("summer");
             if (localStorage.getItem("cheap") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the summer for a low cost";
                 use = summerlist[0];
             } else if (localStorage.getItem("fair") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the summer for a fair cost";
                 use = summerlist[1];
             } else if (localStorage.getItem("expensive") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the summer for a shiny penny";
                 use = summerlist[2];
             }
         } else if (localStorage.getItem("fall") == "true") {
             if (localStorage.getItem("cheap") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the fall for a low cost";
                 use = falllist[0];
             } else if (localStorage.getItem("fair") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the fall for a fair cost";
                 use = falllist[1];
             } else if (localStorage.getItem("expensive") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the fall for a shiny penny";
                 use = falllist[2];
             }
         } else if (localStorage.getItem("winter") == "true") {
             if (localStorage.getItem("cheap") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the winter for a low cost";
                 use = winterlist[0];
             } else if (localStorage.getItem("fair") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the winter for a fair cost";
                 use = winterlist[1];
             } else if (localStorage.getItem("expensive") == "true") {
+              document.getElementById("resultsTitle").innerHTML = "Things to do in the winter for a shiny penny";
                 use = winterlist[2];
             }
         }
