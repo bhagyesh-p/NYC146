@@ -4,9 +4,9 @@ class Post {
 
   constructor(name, info, imageLocation, webLink, linkCaption, imageCaption, season, price) {
     this._name = name,
-      this._info = info,
-      this._imageLocation = imageLocation,
-      this._webLink = webLink;
+    this._info = info,
+    this._imageLocation = imageLocation,
+    this._webLink = webLink;
     this._linkCaption = linkCaption;
     this._imageCaption = imageCaption;
     this._season = season;
@@ -284,24 +284,24 @@ window.onload = () => {
   // index 1 is cheap, index 2 is fair, index 3 is expensive
 
   var springlist = [
-    [r1, r2, r3, ssc1, sc1, sc2, sc4, allc1, allc2, all1, all2,wsc,sc5],
-    [sc2, allf1, sf1, all1, all2, anyRfe, anyRfe2,allf2,sf2,sf3],
-    [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2,sfe1]
+    [r1, r2, r3, ssc1, sc1, sc2, sc4, allc1, allc2, all1, all2, wsc, sc5],
+    [sc2, allf1, sf1, all1, all2, anyRfe, anyRfe2, allf2, sf2, sf3],
+    [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, sfe1]
   ];
   var summerlist = [
     [r1, r2, r3, ssc1, sc1, ssc2, sc4, allc1, allc2, all1, all2, ssc3],
-    [r1, r2, r3, ssc1, sc1, sc2, sf1, allf1, all1, all2, anyRfe, anyRfe2,allf2],
+    [r1, r2, r3, ssc1, sc1, sc2, sf1, allf1, all1, all2, anyRfe, anyRfe2, allf2],
     [r1, r2, r3, ssc1, alle2, alle1, all1, all2, anyRfe, anyRfe2]
   ];
   var falllist = [
     [r1, r2, r3, sc1, ssc2, sc2, allc1, allc2, all1, all2, fcf1],
-    [ssc2, sc2, allf1, all1, all2, anyRfe, anyRfe2, fcf1, fef1,allf2],
-    [sc2, sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, fef1,fe1,sfe1]
+    [ssc2, sc2, allf1, all1, all2, anyRfe, anyRfe2, fcf1, fef1, allf2],
+    [sc2, sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, fef1, fe1, sfe1]
   ];
   var winterlist = [
-    [r1, r2, r3, sc1, sc2, allc1, allc2, all1, wc1, all2, wRcf, wc2,wsc],
-    [sc2, allf1, all1, wf1, all2, anyRfe, anyRfe2, wRcf,allf2,wf2],
-    [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2,we1]
+    [r1, r2, r3, sc1, sc2, allc1, allc2, all1, wc1, all2, wRcf, wc2, wsc],
+    [sc2, allf1, all1, wf1, all2, anyRfe, anyRfe2, wRcf, allf2, wf2],
+    [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, we1]
   ];
 
   // to be used to see what list we want to use
