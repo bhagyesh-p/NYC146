@@ -223,11 +223,15 @@ window.onload = () => {
   //all cheap
   let allc1 = new Post("Museum of Modern Art", "Come check out one of the largest and most influential museums of modern art in the world, featuring approximately 300,000 books and exhibition catalogs, over 1,000 periodical titles, and over 40,000 files of ephemera about individual artists and groups. The museum offers a free admission program UNIQLO Free Friday Nights- which provides free access to all exhibitions from 4:00 PM to 8:00 PM every Friday throughout the year. ", "../images/moma.jpg", "https://www.moma.org/", "CLICK THIS TO GO TO WEBSITE", "Exhibition in the museum featuring modern art");
   let allc2 = new Post("The Gravity Vault", "A popular rock climbing gym featuring 14,000+ square feet of climbing, 40+ foot climbing walls, 45-60 top rope stations and bouldering. ", "../images/gravityvault.jpg", "https://www.gravityvault.com/locations/hoboken-nj", "CLICK THIS TO GO TO WEBSITE", "Walls to climb");
-  let allf2 = new Post("Color Factory", "The interactive exhibition, which is located in Soho, was designed and launched by event planner Jordan Ferney of Oh Happy Day (a crafts and celebrations blog) to help visitors explore the fun and importance of color.", "../images/color.jpg", "https://www.colorfactory.co/", "CLICK THIS TO GO TO WEBSITE", "People at one of the many exibates at the Factrory");
-
+  let allc3 = new Post("Instagrammable Spots in NYC", "New York City is the world’s most photogenic metropolis, and we’ve got the lowdown on how to capture the perfect shots of the City—though we think it looks good from any angle.", "../images/insta.jpg", "https://www.nycgo.com/photo-galleries/instagrammable-nyc", "CLICK THIS TO GO TO WEBSITE", "One of the many pictures you can take");
+  let allc4 = new Post("9/11 Memorial & Museum", "The National September 11 Memorial & Museum is a memorial and museum in New York City commemorating the September 11, 2001 attacks and the 1993 World Trade Center bombing.", "../images/memorial.jpg", "https://www.911memorial.org/museum", "CLICK THIS TO GO TO WEBSITE", "9/11 Memorial"); 
+  
   // all fair
   let allf1 = new Post("Nat. Geo. Encounter", "Times Square tourists will be able to take a digital dive deep into the heart of the sea without even getting damp at the National Geographic Encounter.", "../images/natneo.jpg", "https://natgeoencounter.com", "CLICK THIS TO GO TO WEBSITE", "The digital sting ray exhibit in the encounter");
-
+  let allf2 = new Post("Color Factory", "The interactive exhibition, which is located in Soho, was designed and launched by event planner Jordan Ferney of Oh Happy Day (a crafts and celebrations blog) to help visitors explore the fun and importance of color.", "../images/color.jpg", "https://www.colorfactory.co/", "CLICK THIS TO GO TO WEBSITE", "People at one of the many exibates at the Factrory");
+  let allf3 = new Post("Empire State Building Observatory", "The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan, New York City. Get an amazing 360° views of New York City and beyond from the 86th and 102nd floors.", "../images/empire.jpg", "http://www.esbnyc.com/", "CLICK THIS TO GO TO WEBSITE", "One of the many angles from the skyscraper");
+  let allf4 = new Post("One World Observatory", "Observatory located on floors 100-102 of One World Trade Center, with exhibits & restaurants. Get an amazing 360° views of New York City.", "../images/world.jpg", "https://oneworldobservatory.com/en-US", "CLICK THIS TO GO TO WEBSITE", "One of the many angles from the skyscraper");
+  
   //all expenseive
   let alle1 = new Post("Gucci Brookfield", "One of the best known luxury brand known for modern, Italian-crafted leather goods, apparel & accessories for men & women.", "../images/gucci.jpg", "https://www.gucci.com/us/en/", "CLICK THIS TO GO TO WEBSITE", "Inside of the store");
   let alle2 = new Post("Saks Fifth Ave", "Saks Fifth Avenue is an American chain of luxury department stores owned by the oldest commercial corporation in North America, the Hudson's Bay Company", "../images/saks.jpg", "https://www.saksfifthavenue.com/Entry.jsp", "CLICK THIS TO GO TO WEBSITE", "Inside of Saks Fifth Ave, in the mens deparetment");
@@ -284,23 +288,23 @@ window.onload = () => {
   // index 1 is cheap, index 2 is fair, index 3 is expensive
 
   var springlist = [
-    [r1, r2, r3, ssc1, sc1, sc2, sc4, allc1, allc2, all1, all2, wsc, sc5],
-    [sc2, allf1, sf1, all1, all2, anyRfe, anyRfe2, allf2, sf2, sf3],
+    [r1, r2, r3, ssc1, sc1, sc2, sc4, allc1, allc2, allc3, allc4, all1, all2, wsc, sc5],
+    [sc2, allf1, sf1, all1, all2, allf3, allf4, anyRfe, anyRfe2, allf2, sf2, sf3],
     [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, sfe1]
   ];
   var summerlist = [
-    [r1, r2, r3, ssc1, sc1, ssc2, sc4, allc1, allc2, all1, all2, ssc3],
+    [r1, r2, r3, ssc1, sc1, ssc2, sc4, allc1, allc2, allc3, all1, all2, ssc3],
     [r1, r2, r3, ssc1, sc1, sc2, sf1, allf1, all1, all2, anyRfe, anyRfe2, allf2],
     [r1, r2, r3, ssc1, alle2, alle1, all1, all2, anyRfe, anyRfe2]
   ];
   var falllist = [
-    [r1, r2, r3, sc1, ssc2, sc2, allc1, allc2, all1, all2, fcf1],
-    [ssc2, sc2, allf1, all1, all2, anyRfe, anyRfe2, fcf1, fef1, allf2],
+    [r1, r2, r3, sc1, ssc2, sc2, allc1, allc2, allc3, allc4, all1, all2, fcf1],
+    [ssc2, sc2, allf1, all1, all2, allf3, allf4, anyRfe, anyRfe2, fcf1, fef1, allf2],
     [sc2, sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, fef1, fe1, sfe1]
   ];
   var winterlist = [
-    [r1, r2, r3, sc1, sc2, allc1, allc2, all1, wc1, all2, wRcf, wc2, wsc],
-    [sc2, allf1, all1, wf1, all2, anyRfe, anyRfe2, wRcf, allf2, wf2],
+    [r1, r2, r3, sc1, sc2, allc1, allc2, all1, allc3, allc4, wc1, all2, wRcf, wc2, wsc],
+    [sc2, allf1, all1, wf1, all2, allf3, allf4, anyRfe, anyRfe2, wRcf, allf2, wf2],
     [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, we1]
   ];
 
