@@ -82,8 +82,20 @@ function handleFormSubmit(event) {
     var price = document.getElementById("priceSelector").value;
 
     var post = new Post(formName, formDescription, formImg, formWebsite, "CLICK THIS TO GO TO WEBSITE", formImgDescription, season, price);
+    let seas =  document.getElementById("resultsTitle").innerHTML;
+    console.log(seas);
+    console.log(season);
+    if( seas.includes(season)){
+      if(seas.includes("low") && price.includes("cheap")){
+        post.build();
+      }else if(seas.includes("fair") && price.includes("fair")){
+        post.build();
+      }else if(seas.includes("shiny") && price.includes("expensive")){
+        post.build();
+      }
+    }
+    alert("This is temporary event that you added. If you want this permently added please email us at: whattodoinnyc146@gmail.com");
 
-    post.build();
 }
 
 // we need onload due to the window not having a body till later,
