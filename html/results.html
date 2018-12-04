@@ -34,7 +34,6 @@
       <nav>
         <ul id="resultList">
 
-
         	<li>
               <div class="form" id='addForm'>
               	<h2>Something not here?  Add your own activity!</h2>
@@ -46,13 +45,7 @@
                   placeholder="Activity"
                   required
                   />
-                  <input
-                  type="text"
-                  name="Description"
-                  id="formDescription"
-                  placeholder="Description"
-                  required
-                  />
+                  <textarea id="formDescription" row="2">Type a description here. . .</textarea>
                   <input
                   type="text"
                   name="Website"
@@ -74,6 +67,21 @@
                   placeholder="Image Description"
                   required
                   />
+                  <select id="seasonSelector">
+	                  <option value="spring">Spring</option>
+	                  <option value="summer">Summer</option>
+	                  <option value="fall">Fall</option>
+	                  <option value="winter">Winter</option>
+               	  </select>
+               	  <select id="priceSelector">
+	                  <option value="cheap">Cheap</option>
+	                  <option value="fair">Fair</option>
+	                  <option value="expensive">Expensive</option>
+               	  </select>
+
+
+
+                  <input type="reset" value="Reset" id="resetButton"/>
                   <button>Submit Activity!</button>
         	    </form>
         	  </div>

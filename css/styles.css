@@ -291,7 +291,7 @@ padding: 0;
 }
 
 
-button {
+button,  #resetButton{
    padding: 2vh 4vw 2vh 4vw;
    margin: 2vh 4vw 2vh 4vw;
    font-size: 1em;
@@ -304,12 +304,14 @@ button {
    cursor: pointer;
 }
 
-button:hover {
+button:hover, #resetButton:hover {
    border-color: var(--light);
    background-color: grey;
 }
 
-#formName, #formDescription, #formImg, #formImgDescription, #formWebsite {
+
+
+#formName, #formDescription, #formImg, #formImgDescription, #formWebsite, #seasonSelector, #priceSelector {
   padding: 2vh 4vw 2vh 4vw;
   margin: 2vh 4vw 2vh 4vw;
   margin: 10px;
@@ -318,6 +320,16 @@ button:hover {
   text-overflow: wrap;
   border: solid;
   border-color: black;
+}
+
+#formDescription
+{
+  display: inline-block;
+}
+
+#seasonSelector, #priceSelector
+{
+  width: 45%;
 }
 
 input {
@@ -330,6 +342,46 @@ input {
   border: solid black;
   border-radius: 5px;
   overflow-wrap: break-word;
+  animation-duration: 0.85s;
+  animation-name: appear;
+}
+
+@keyframes appear {
+   from,
+   20%,
+   40%,
+   60%,
+   80%,
+   to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+   }
+
+   0% {
+      opacity: 0;
+      transform: scale3d(0.4, 0.4, 0.4);
+   }
+
+   20% {
+      transform: scale3d(1.0, 1.0, 1.0);
+   }
+
+   40% {
+      transform: scale3d(0.8, 0.8, 0.8);
+   }
+
+   60% {
+      opacity: 1;
+      transform: scale3d(1.03, 1.03, 1.03);
+   }
+
+   80% {
+      transform: scale3d(0.87, 0.87, 0.87);
+   }
+
+   to {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+   }
 }
 
 .activity ul, .form {
@@ -422,6 +474,10 @@ input {
     padding: 10px 0px 10px 0px;
     height: 33.33%;
     width: auto;
+  }
+  #seasonSelector, #priceSelector
+  {
+    width: inherit;
   }
 }
 
