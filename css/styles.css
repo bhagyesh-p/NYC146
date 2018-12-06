@@ -29,29 +29,32 @@ padding: 0;
     padding: 10vh 10vw 25vh 10vw;
     margin: 0px;
 }
-#messageFront1{
+
+#messageFront1 {
 
 }
-#messageFront2{
-  display: none;
-}
-#messageFront3{
+
+#messageFront2 {
   display: none;
 }
 
-#sideButton{
+#messageFront3 {
+  display: none;
+}
+
+#sideButton {
    display: none;
 }
 
-.seasons{
+.seasons {
   display: flex;
 }
 
-.prices{
+.prices {
   display: flex;
 }
 
-.seasonBlocks{
+.seasonBlocks {
   transition: transform .2s;
   display: flex;
   align-items: center;
@@ -61,7 +64,7 @@ padding: 0;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-.priceBlocks{
+.priceBlocks {
   transition: transform .2s;
   display: flex;
   align-items: center;
@@ -71,8 +74,7 @@ padding: 0;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-
-#springDiv{
+#springDiv {
   color: white;
   text-decoration: none;
   background: url('../images/spring.gif');
@@ -80,6 +82,7 @@ padding: 0;
   animation: spring 3s infinite steps(1);
   animation-play-state: runnning;
 }
+
 @keyframes spring {
   1%   { background-image: url('../images/springIndv/frame_00_delay-0.01s.gif'); }
   3%   { background-image: url('../images/springIndv/frame_01_delay-0.01s.gif'); }
@@ -122,15 +125,15 @@ padding: 0;
   99%   { background-image: url('../images/springIndv/frame_38_delay-0.01s.gif'); }
   100%   { background-image: url('../images/springIndv/frame_39_delay-0.01s.gif'); }
 }
-#springDiv:hover{
+
+#springDiv:hover {
   box-shadow: 0 2px 4px rgba(0,0,0,.2);
   transform: scale(1.1,1.1);
   animation-play-state:paused;
 
 }
 
-
-#summerDiv{
+#summerDiv {
   color: white;
   text-decoration: none;
   background-image: url('../images/summerIndv/frame_00_delay-0.08s.gif');
@@ -138,6 +141,7 @@ padding: 0;
   animation: summer 3s infinite steps(1);
   animation-play-state: runnning;
 }
+
 @keyframes summer {
   3%   { background-image: url('../images/summerIndv/frame_00_delay-0.08s.gif'); }
 	6%   { background-image: url('../images/summerIndv/frame_01_delay-0.08s.gif'); }
@@ -170,14 +174,14 @@ padding: 0;
 	95%   { background-image: url('../images/summerIndv/frame_28_delay-0.08s.gif'); }
 	100%   { background-image: url('../images/summerIndv/frame_29_delay-0.08s.gif'); }
 }
-#summerDiv:hover{
+
+#summerDiv:hover {
   box-shadow: 0 2px 4px rgba(0,0,0,.2);
   transform: scale(1.1,1.1);
   animation-play-state:paused;
 }
 
-
-#fallDiv{
+#fallDiv {
   color: white;
   text-decoration: none;
   background: url('../images/fallIndv/frame_00_delay-0.07s.gif') no-repeat;
@@ -185,6 +189,7 @@ padding: 0;
   animation: fall 2s infinite steps(1);
   animation-play-state: runnning;
 }
+
 @keyframes fall {
   6%   { background-image: url('../images/fallIndv/frame_00_delay-0.07s.gif'); }
   12%   { background-image: url('../images/fallIndv/frame_01_delay-0.07s.gif'); }
@@ -203,7 +208,8 @@ padding: 0;
   96%   { background-image: url('../images/fallIndv/frame_14_delay-0.07s.gif'); }
   100%   { background-image: url('../images/fallIndv/frame_15_delay-0.07s.gif'); }
 }
-#fallDiv:hover{
+
+#fallDiv:hover {
   box-shadow: 0 2px 4px rgba(0,0,0,.2);
   transform: scale(1.1,1.1);
   animation-play-state:running;  box-shadow: 0 2px 4px rgba(0,0,0,.2);
@@ -211,8 +217,7 @@ padding: 0;
   animation-play-state:paused;
 }
 
-
-#winterDiv{
+#winterDiv {
   color: white;
   text-decoration: none;
   background: url('../images/winterIndv/frame_00_delay-0.06s.gif') ;
@@ -220,6 +225,7 @@ padding: 0;
   animation: winter 2s infinite steps(1);
   animation-play-state: runnning;
 }
+
 @keyframes winter {
 1%   { background-image: url('../images/winterIndv/frame_00_delay-0.06s.gif'); }
 5%   { background-image: url('../images/winterIndv/frame_01_delay-0.06s.gif'); }
@@ -243,35 +249,36 @@ padding: 0;
 100%   { background-image: url('../images/winterIndv/frame_19_delay-0.06s.gif'); }
 }
 
-#winterDiv:hover{
+#winterDiv:hover {
    box-shadow: 0 2px 4px rgba(0,0,0,.2);
    transform: scale(1.1,1.1);
    animation-play-state:paused;
 }
 
-#expensiveDiv{
+#expensiveDiv {
   color: white;
   text-decoration: none;
   background-color: gold;
 }
-#cheapDiv{
+
+#cheapDiv {
   color: white;
   text-decoration: none;
   background-color: #cd7f32;
 }
-#fairDiv{
+
+#fairDiv {
   color: white;
   text-decoration: none;
   background-color: silver;
 }
-#cheapDiv:hover, #fairDiv:hover, #expensiveDiv:hover{
+
+#cheapDiv:hover, #fairDiv:hover, #expensiveDiv:hover {
   box-shadow: 0 2px 4px rgba(0,0,0,.2);
   transform: scale(1.1,1.1);
 }
 
-
-
-.navbar{
+.navbar {
   display: flex;
   padding-top: 4vh;
   padding-bottom: 4vh;
@@ -283,15 +290,15 @@ padding: 0;
   font: 3vw impact, sans-serif;;
 }
 
-.home-link{
+.home-link {
   text-decoration: none;
 }
-.home-link:hover{
+
+.home-link:hover {
   color: white;
 }
 
-
-button,  #resetButton{
+button,  #resetButton {
    padding: 2vh 4vw 2vh 4vw;
    margin: 2vh 4vw 2vh 4vw;
    font-size: 1em;
@@ -309,8 +316,6 @@ button:hover, #resetButton:hover {
    background-color: grey;
 }
 
-
-
 #formName, #formDescription, #formImg, #formImgDescription, #formWebsite, #seasonSelector, #priceSelector {
   padding: 2vh 4vw 2vh 4vw;
   margin: 2vh 4vw 2vh 4vw;
@@ -322,13 +327,11 @@ button:hover, #resetButton:hover {
   border-color: black;
 }
 
-#formDescription
-{
+#formDescription {
   display: inline-block;
 }
 
-#seasonSelector, #priceSelector
-{
+#seasonSelector, #priceSelector {
   width: 45%;
 }
 
@@ -395,19 +398,18 @@ input {
 .activity-title {
   text-decoration: none;
 }
+
 .activity-title:hover {
   color: white;
 }
 
-.activity-image{
+.activity-image {
   margin: 1vh 1vw 1vh 1vw;
   width: 80%;
   height: auto;
   border-radius: 2px;
   border-style: solid;
 }
-
-
 
 .container h1, p {
   padding-top: 5vh;
@@ -416,7 +418,6 @@ input {
   justify-content: center;
   overflow-wrap: break-word;
 }
-
 
 
 /* Desktop View */

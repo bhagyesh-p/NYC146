@@ -2,15 +2,13 @@
 // I pledge my honor that I have abided by the Stevens Honor System.
 class Post {
 
-  constructor(name, info, imageLocation, webLink, linkCaption, imageCaption, season, price) {
+  constructor(name, info, imageLocation, webLink, linkCaption, imageCaption) {
     this._name = name,
     this._info = info,
     this._imageLocation = imageLocation,
     this._webLink = webLink;
     this._linkCaption = linkCaption;
     this._imageCaption = imageCaption;
-    this._season = season;
-    this._price = price;
   }
 
 
@@ -96,9 +94,11 @@ function handleFormSubmit(event) {
       post.build();
     } else if (seas.includes("shiny") && price.includes("expensive")) {
       post.build();
+    } else {
+    	alert('The event is not displayed here because you are not in the correct season / price range');
     }
   }
-  alert("This is temporary event that you added. If you want this permently added please email us at: whattodoinnyc146@gmail.com");
+  alert("This is a temporary event that you added. If you want this permently added please email us at: whattodoinnyc146@gmail.com");
 
 }
 
@@ -366,7 +366,7 @@ window.onload = () => {
       var nums = [];
 
 
-      // picks events randomly to set to the site
+      // picks 4 events randomly to set to the site
       for (let i = 0; i < 4; i++) {
         let a = Math.floor(Math.random() * ((use.length - 1) - 0 + 1)) + 0;
         //if the event is in the list to be used regen a new event
