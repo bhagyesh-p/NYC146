@@ -206,58 +206,43 @@ function loadPage(newPost, season, price) {
       return ;
   }
   document.cookie = "c=0";
+  // if there is no data, 1st load then have  this default data loaded up
     if (newPost == null) {
 
         // cheap spring posts
         var sc1 = new Post("The Met Museum", "The famous Met Museum, the largest museuem in the US.", "../images/themet.jpg", "https://www.metmuseum.org/", "CLICK THIS TO GO TO WEBSITE", "The Met Museum");
         var sc2 = new Post("The Shops at Columbus Circle", "One of the best malls in Manhattan with over three floors of shops and resturants.", "../images/shops_at_columbus.jpg", "https://www.theshopsatcolumbuscircle.com/", "http://www.theshopsatcolumbuscircle.com/", "The Shops at Columbus Circle");
         var sc3 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
-
         // fair spring posts
-
         // expensive spring posts
-
-
         // cheap summer posts
         var ssc1 = new Post("Pier A Park", "A great park on Pier with a gazebo, a great lawn, and a place to fish.", "../images/pier-A-park.jpg", "https://www.hobokennj.gov/location/pier-a-park", "CLICK THIS TO GO TO WEBSITE", "Picture of Pier A Park");
         var ssc2 = new Post("Hoboken Farmers' Market", "Farmers from all over the Garden State come to the corner of 13th Street & Hudson in Hoboken to offer their freshest and the most delicious products.  Open July to November", "../images/Farmers'_Market.jpg", "http://hobokenfarmersmarket.com/", "CLICK THIS TO GO TO WEBSITE", "Picture of fruits at farmers' market");
         var ssc3 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
-
         // fair summer posts
-
         // expensive summer posts
-
-
         // cheap fall posts
         var fc1 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
-
         // fair fall posts
-
         // expensive fall posts
-
-
         // cheap winter posts
         var wc1 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
-
         // fair winter posts
-
         // expensive winter posts
-
-
         // restaurants
         var r1 = new Post("Stacks Pancake House & Smokehouse BBQ", "Serving 22 different kinds of pancakes and other breakfast and BBQ items, Stacks is a must go if you are in the mood for a sweet treat anytime of the day if you are in Hoboken.", "../images/stacks.jpg", "http://www.stackspancakehouse.net/", "CLICK THIS TO GO TO WEBSITE", "some pancakes");
         var r2 = new Post("Benny Tudino's Pizzeria", "Home of the largest slice of pizza for over 50 years.  Come in in to get a delicious New York style anytime of the year.", "../images/bennys.jpg", "http://bennytudinos.com/pizza.html", "CLICK THIS TO GO TO WEBSITE", "a pizza pie and the owner");
         var r3 = new Post("Makai Poke Co.", "Simple counter serve making build-your-own, Hawaiian-style sushi bowls, salads & sushi burritos.", "../images/makai.jpg", "http://makaipokeco.com/", "CLICK THIS TO GO TO WEBSITE", "a bowl meal item");
         var r4 = new Post("NAME", "DESCRIPTION", "../images/IMAGE_NAME.jpg", "WEB_SITE", "CLICK THIS TO GO TO WEBSITE", "IMAGE_DESCRIPTION");
-
     }
 
-
+    // get these lists
     var springlist = localStorage.getItem('springlist', springlist);
     var summerlist = localStorage.getItem('summerlist', summerlist);
     var falllist = localStorage.getItem('falllist', falllist);
     var winterlist = localStorage.getItem('winterlist', winterlist);
 
+    // if the lists are empty lets add data from the default data, line 210
     if (springlist == null && summerlist == null && falllist == null && winterlist == null) {
         var springlist = [
             [r1, r2, r3, ssc1, sc1, sc2],
@@ -279,12 +264,15 @@ function loadPage(newPost, season, price) {
             [sc2],
             [sc2]
         ];
+        // now store that data if c=1, if its the 1st load
 if(document.cookie.includes("c=1") ){
   localStorage.setItem('springlist', springlist);
   localStorage.setItem('summerlist', summerlist);
   localStorage.setItem('falllist', falllist);
   localStorage.setItem('winterlist', winterlist);
-}else{
+}
+//other wise lets get load the data.
+  else{
   console.log("STRING HERE 2");
 
   localStorage.setItem('springlist', JSON.stringify(springlist));
@@ -293,7 +281,7 @@ if(document.cookie.includes("c=1") ){
   localStorage.setItem('winterlist', JSON.stringify(winterlist));
 }
 
-
+  // take that data in the list and convert that into data so it can be used to create a "POST" instance (the class)
     } else {
 
         springlist = JSON.parse(localStorage.getItem('springlist'));
@@ -307,6 +295,8 @@ if(document.cookie.includes("c=1") ){
         // ADD SUMMER WINTER SPRING
     }
 
+    // based on the selection of season and price we add a new event/post to the list
+    // i.e. a park that a summer event and is cheap is added to the summercheap list
     if (season != null && price != null) {
         if (season == 'spring') {
             if (price == 'cheap') {
@@ -343,6 +333,7 @@ if(document.cookie.includes("c=1") ){
         }
 
     }
+    //based on that new addition the data is now re-stored so it has the new event in the lists to be later called upon
     if(document.cookie.includes("c=1") ){
       localStorage.setItem('springlist', springlist);
       localStorage.setItem('summerlist', summerlist);
@@ -360,6 +351,8 @@ if(document.cookie.includes("c=1") ){
 
     // to be used to see what list we want to use
 
+    // based on the seasons and price point we want to see events in we load the specific lists that are made of the
+    // object post, that stores info like name,pic,link,des etc
     if (newPost == null) {
         var use = [];
         if (localStorage.getItem("spring") == "true") {
@@ -398,7 +391,8 @@ if(document.cookie.includes("c=1") ){
             }
         }
 
-        //console.log(use);
+        // based on that list we build the site via the build func in the
+        // post class
         buildpage(use);
     }
 
