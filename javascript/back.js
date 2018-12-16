@@ -83,9 +83,19 @@ function handleFormSubmit(event) {
   var price = document.getElementById("priceSelector").value;
 
   var post = new Post(formName, formDescription, formImg, formWebsite, "CLICK THIS TO GO TO WEBSITE", formImgDescription);
-  post.build();
+  let seas = document.getElementById("resultsTitle").innerHTML;
 
-  console.log("seaon chosen: "+ season) ;
+    if (seas.includes(season) && checkIfIn(formName)) {
+      if (seas.includes("low") && price.includes("cheap")) {
+        post.build();
+      } else if (seas.includes("fair") && price.includes("fair")) {
+        post.build();
+      } else if (seas.includes("shiny") && price.includes("expensive")) {
+        post.build();
+      }
+    }else{
+      alert("Sorry Event is already there");
+    }
   loadPage(post, season, price);
 }
 
@@ -198,6 +208,12 @@ window.onload = () => {
   loadPage(null, null, null);
 
 }
+
+////////////////////////////////////////////////////////////
+// For Season and Price Selector Above
+//
+// For Result Page Below
+//////////////////////////////////////////////////////////
 
 function loadPage(newPost, season, price) {
   console.log("load");
@@ -516,3 +532,52 @@ function loadPage(newPost, season, price) {
 
 
   document.cookie = "c=1";
+
+
+function checkIfIn(post){
+  var springlist = localStorage.getItem('springlist', springlist);
+  var summerlist = localStorage.getItem('summerlist', summerlist);
+  var falllist = localStorage.getItem('falllist', falllist);
+  var winterlist = localStorage.getItem('winterlist', winterlist);
+  console.log("in check");
+  springlist = JSON.parse(localStorage.getItem('springlist'));
+  for (var row = 0; row < springlist.length; row++) {
+    for (var col = 0; col < springlist[row].length; col++) {
+      springlist[row][col] = new Post(springlist[row][col]._name, springlist[row][col]._info, springlist[row][col]._imageLocation, springlist[row][col]._webLink, springlist[row][col]._linkCaption, springlist[row][col]._imageCaption);
+      if(springlist[row][col]._name == post){
+        return false;
+      }
+    }
+  }
+
+  summerlist = JSON.parse(localStorage.getItem('summerlist'));
+  for (var row = 0; row < summerlist.length; row++) {
+    for (var col = 0; col < summerlist[row].length; col++) {
+      summerlist[row][col] = new Post(summerlist[row][col]._name, summerlist[row][col]._info, summerlist[row][col]._imageLocation, summerlist[row][col]._webLink, summerlist[row][col]._linkCaption, summerlist[row][col]._imageCaption);
+      if(summerlist[row][col]._name == post){
+        return false;
+      }
+    }
+  }
+
+  falllist = JSON.parse(localStorage.getItem('falllist'));
+  for (var row = 0; row < falllist.length; row++) {
+    for (var col = 0; col < falllist[row].length; col++) {
+      falllist[row][col] = new Post(falllist[row][col]._name, falllist[row][col]._info, falllist[row][col]._imageLocation, falllist[row][col]._webLink, falllist[row][col]._linkCaption, falllist[row][col]._imageCaption);
+      if(falllist[row][col]._name == post){
+        return false;
+      }
+    }
+  }
+
+  winterlist = JSON.parse(localStorage.getItem('winterlist'));
+  for (var row = 0; row < winterlist.length; row++) {
+    for (var col = 0; col < winterlist[row].length; col++) {
+      winterlist[row][col] = new Post(winterlist[row][col]._name, winterlist[row][col]._info, winterlist[row][col]._imageLocation, winterlist[row][col]._webLink, winterlist[row][col]._linkCaption, winterlist[row][col]._imageCaption);
+      if(winterlist[row][col]._name == post){
+        return false;
+      }
+    }
+  }
+  return true;
+}
