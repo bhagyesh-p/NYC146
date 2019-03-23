@@ -1,5 +1,5 @@
-//Ryan Adoni, Bhagyesh Patel, Chris Tan, Rohan Krishnakumar
-// I pledge my honor that I have abided by the Stevens Honor System.
+// Bhagyesh Patel
+
 var count = 0;
 
 
@@ -85,17 +85,17 @@ function handleFormSubmit(event) {
   var post = new Post(formName, formDescription, formImg, formWebsite, "CLICK THIS TO GO TO WEBSITE", formImgDescription);
   let seas = document.getElementById("resultsTitle").innerHTML;
 
-    if (seas.includes(season) && checkIfIn(formName)) {
-      if (seas.includes("low") && price.includes("cheap")) {
-        post.build();
-      } else if (seas.includes("fair") && price.includes("fair")) {
-        post.build();
-      } else if (seas.includes("shiny") && price.includes("expensive")) {
-        post.build();
-      }
-    }else{
-      alert("Sorry Event is already there");
+  if (seas.includes(season) && checkIfIn(formName)) {
+    if (seas.includes("low") && price.includes("cheap")) {
+      post.build();
+    } else if (seas.includes("fair") && price.includes("fair")) {
+      post.build();
+    } else if (seas.includes("shiny") && price.includes("expensive")) {
+      post.build();
     }
+  } else {
+    alert("Sorry Event is already there");
+  }
   loadPage(post, season, price);
 }
 
@@ -223,7 +223,6 @@ function loadPage(newPost, season, price) {
 
     return;
   }
-  document.cookie = "c=0";
   // if there is no data, 1st load then have  this default data loaded up
   if (newPost == null) {
 
@@ -306,72 +305,117 @@ function loadPage(newPost, season, price) {
   }
 
   // get these lists
-  var springlist = localStorage.getItem('springlist', springlist);
-  var summerlist = localStorage.getItem('summerlist', summerlist);
-  var falllist = localStorage.getItem('falllist', falllist);
-  var winterlist = localStorage.getItem('winterlist', winterlist);
+  var springList = localStorage.getItem('springList', springList);
+  var summerList = localStorage.getItem('summerList', summerList);
+  var fallList = localStorage.getItem('fallList', fallList);
+  var winterList = localStorage.getItem('winterList', winterList);
+  //creates a 2d array, with 3 arrays
+  var springListJSON = Create2DArray(3);
+  var summerListJSON = Create2DArray(3);
+  var fallListJSON = Create2DArray(3);
+  var winterListJSON = Create2DArray(3);
   // if the lists are empty lets add data from the default data, line 210
-  if (springlist == null && summerlist == null && falllist == null && winterlist == null) {
-    var springlist = [
-        [r1, r2, r3, ssc1, sc1, sc2, sc4, allc1, allc2, allc3, allc4, all1, all2, wsc, sc5],
-        [sc2, allf1, sf1, all1, all2, allf3, allf4, anyRfe, anyRfe2, allf2, sf2, sf3],
-        [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, sfe1]
-      ];
-      var summerlist = [
-        [r1, r2, r3, ssc1, sc1, ssc2, sc4, allc1, allc2, allc3, all1, all2, ssc3],
-        [r1, r2, r3, ssc1, sc1, sc2, sf1, allf1, all1, all2, anyRfe, anyRfe2, allf2],
-        [r1, r2, r3, ssc1, alle2, alle1, all1, all2, anyRfe, anyRfe2]
-      ];
-      var falllist = [
-        [r1, r2, r3, sc1, ssc2, sc2, allc1, allc2, allc3, allc4, all1, all2, fcf1],
-        [ssc2, sc2, allf1, all1, all2, allf3, allf4, anyRfe, anyRfe2, fcf1, fef1, allf2],
-        [sc2, sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, fef1, fe1, sfe1]
-      ];
-      var winterlist = [
-        [r1, r2, r3, sc1, sc2, allc1, allc2, all1, allc3, allc4, wc1, all2, wRcf, wc2, wsc],
-        [sc2, allf1, all1, wf1, all2, allf3, allf4, anyRfe, anyRfe2, wRcf, allf2, wf2],
-        [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, we1]
-      ];
-    console.log("STRING HERE 2");
+  if (springList == null && summerList == null && fallList == null && winterList == null) {
+    var springList = [
+      [r1, r2, r3, ssc1, sc1, sc2, sc4, allc1, allc2, allc3, allc4, all1, all2, wsc, sc5],
+      [sc2, allf1, sf1, all1, all2, allf3, allf4, anyRfe, anyRfe2, allf2, sf2, sf3],
+      [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, sfe1]
+    ];
+    var summerList = [
+      [r1, r2, r3, ssc1, sc1, ssc2, sc4, allc1, allc2, allc3, all1, all2, ssc3],
+      [r1, r2, r3, ssc1, sc1, sc2, sf1, allf1, all1, all2, anyRfe, anyRfe2, allf2],
+      [r1, r2, r3, ssc1, alle2, alle1, all1, all2, anyRfe, anyRfe2]
+    ];
+    var fallList = [
+      [r1, r2, r3, sc1, ssc2, sc2, allc1, allc2, allc3, allc4, all1, all2, fcf1],
+      [ssc2, sc2, allf1, all1, all2, allf3, allf4, anyRfe, anyRfe2, fcf1, fef1, allf2],
+      [sc2, sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, fef1, fe1, sfe1]
+    ];
+    var winterList = [
+      [r1, r2, r3, sc1, sc2, allc1, allc2, all1, allc3, allc4, wc1, all2, wRcf, wc2, wsc],
+      [sc2, allf1, all1, wf1, all2, allf3, allf4, anyRfe, anyRfe2, wRcf, allf2, wf2],
+      [sc2, alle2, alle1, all1, all2, anyRfe, anyRfe2, we1]
+    ];
+    // we add the values to above to the local storages and store it, normally done when first load
+    localStorage.setItem('springList', JSON.stringify(springList));
+    localStorage.setItem('summerList', JSON.stringify(summerList));
+    localStorage.setItem('fallList', JSON.stringify(fallList));
+    localStorage.setItem('winterList', JSON.stringify(winterList));
 
-    localStorage.setItem('springlist', JSON.stringify(springlist));
-    localStorage.setItem('summerlist', JSON.stringify(summerlist));
-    localStorage.setItem('falllist', JSON.stringify(falllist));
-    localStorage.setItem('winterlist', JSON.stringify(winterlist));
-    // now store that data if c=1, if its the 1st load
 
-  } else {
+  }
     // take that data in the list and convert that into data so it can be used to create a "POST" instance (the class)
+    // we also then take the data in the list (ex: springList) and turn that into a JSON that is done via making it a POST object
+    // and then take that data and add it to its JSON arrays (line 314), this is done by taking spacifice values i.e. the instance vars.
 
-    springlist = JSON.parse(localStorage.getItem('springlist'));
-    for (var row = 0; row < springlist.length; row++) {
-      for (var col = 0; col < springlist[row].length; col++) {
-        springlist[row][col] = new Post(springlist[row][col]._name, springlist[row][col]._info, springlist[row][col]._imageLocation, springlist[row][col]._webLink, springlist[row][col]._linkCaption, springlist[row][col]._imageCaption);
+    springList = JSON.parse(localStorage.getItem('springList'));
+    for (var row = 0; row < springList.length; row++) {
+      for (var col = 0; col < springList[row].length; col++) {
+        springList[row][col] = new Post(springList[row][col]._name, springList[row][col]._info, springList[row][col]._imageLocation, springList[row][col]._webLink, springList[row][col]._linkCaption, springList[row][col]._imageCaption);
+        var tempEvent = {
+          name: springList[row][col]._name,
+          info: springList[row][col]._info,
+          imageLocation: springList[row][col]._imageLocation,
+          webLink: springList[row][col]._webLink,
+          linkCaption: springList[row][col]._linkCaption,
+          imageCaption: springList[row][col]._imageCaption
+        };
+        springListJSON[row][col] = tempEvent;
       }
     }
 
-    summerlist = JSON.parse(localStorage.getItem('summerlist'));
-    for (var row = 0; row < summerlist.length; row++) {
-      for (var col = 0; col < summerlist[row].length; col++) {
-        summerlist[row][col] = new Post(summerlist[row][col]._name, summerlist[row][col]._info, summerlist[row][col]._imageLocation, summerlist[row][col]._webLink, summerlist[row][col]._linkCaption, summerlist[row][col]._imageCaption);
+
+    summerList = JSON.parse(localStorage.getItem('summerList'));
+    for (var row = 0; row < summerList.length; row++) {
+      for (var col = 0; col < summerList[row].length; col++) {
+        summerList[row][col] = new Post(summerList[row][col]._name, summerList[row][col]._info, summerList[row][col]._imageLocation, summerList[row][col]._webLink, summerList[row][col]._linkCaption, summerList[row][col]._imageCaption);
+        var tempEvent = {
+          name: summerList[row][col]._name,
+          info: summerList[row][col]._info,
+          imageLocation: summerList[row][col]._imageLocation,
+          webLink: summerList[row][col]._webLink,
+          linkCaption: summerList[row][col]._linkCaption,
+          imageCaption: summerList[row][col]._imageCaption
+        };
+        summerListJSON[row][col] = tempEvent;
       }
     }
 
-    falllist = JSON.parse(localStorage.getItem('falllist'));
-    for (var row = 0; row < falllist.length; row++) {
-      for (var col = 0; col < falllist[row].length; col++) {
-        falllist[row][col] = new Post(falllist[row][col]._name, falllist[row][col]._info, falllist[row][col]._imageLocation, falllist[row][col]._webLink, falllist[row][col]._linkCaption, falllist[row][col]._imageCaption);
+    fallList = JSON.parse(localStorage.getItem('fallList'));
+    for (var row = 0; row < fallList.length; row++) {
+      for (var col = 0; col < fallList[row].length; col++) {
+        fallList[row][col] = new Post(fallList[row][col]._name, fallList[row][col]._info, fallList[row][col]._imageLocation, fallList[row][col]._webLink, fallList[row][col]._linkCaption, fallList[row][col]._imageCaption);
+        var tempEvent = {
+          name: fallList[row][col]._name,
+          info: fallList[row][col]._info,
+          imageLocation: fallList[row][col]._imageLocation,
+          webLink: fallList[row][col]._webLink,
+          linkCaption: fallList[row][col]._linkCaption,
+          imageCaption: fallList[row][col]._imageCaption
+        };
+        fallListJSON[row][col] = tempEvent;
       }
     }
 
-    winterlist = JSON.parse(localStorage.getItem('winterlist'));
-    for (var row = 0; row < winterlist.length; row++) {
-      for (var col = 0; col < winterlist[row].length; col++) {
-        winterlist[row][col] = new Post(winterlist[row][col]._name, winterlist[row][col]._info, winterlist[row][col]._imageLocation, winterlist[row][col]._webLink, winterlist[row][col]._linkCaption, winterlist[row][col]._imageCaption);
+    winterList = JSON.parse(localStorage.getItem('winterList'));
+    for (var row = 0; row < winterList.length; row++) {
+      for (var col = 0; col < winterList[row].length; col++) {
+        winterList[row][col] = new Post(winterList[row][col]._name, winterList[row][col]._info, winterList[row][col]._imageLocation, winterList[row][col]._webLink, winterList[row][col]._linkCaption, winterList[row][col]._imageCaption);
+        var tempEvent = {
+          name: winterList[row][col]._name,
+          info: winterList[row][col]._info,
+          imageLocation: winterList[row][col]._imageLocation,
+          webLink: winterList[row][col]._webLink,
+          linkCaption: winterList[row][col]._linkCaption,
+          imageCaption: winterList[row][col]._imageCaption
+        };
+        winterListJSON[row][col] = tempEvent;
       }
-    }
-
-    // ADD SUMMER WINTER SPRING
+    // once the JSON lists are filled we add them to the local storage
+    localStorage.setItem('springListJSON', JSON.stringify(springListJSON));
+    localStorage.setItem('summerListJSON', JSON.stringify(summerListJSON));
+    localStorage.setItem('fallListJSON', JSON.stringify(fallListJSON));
+    localStorage.setItem('winterListJSON', JSON.stringify(winterListJSON));
   }
 
   // based on the selection of season and price we add a new event/post to the list
@@ -379,72 +423,88 @@ function loadPage(newPost, season, price) {
   var seasonAdjusted = "";
   if (season != null && price != null) {
     if (season == 'spring') {
-      seasonAdjusted = "springlist";
+      seasonAdjusted = "springList";
       if (price == 'cheap') {
-        springlist[0].push(newPost);
+        springListJSON[0] = addItem(springListJSON[0], newPost);
+        springList[0].push(newPost);
       } else if (price == 'fair') {
-        springlist[1].push(newPost);
+        springListJSON[1] = addItem(springListJSON[1], newPost);
+        springList[1].push(newPost);
       } else if (price == 'expensive') {
-        springlist[2].push(newPost);
+        springListJSON[2] = addItem(springListJSON[2], newPost);
+        springList[2].push(newPost);
+
       }
     } else if (season == 'summer') {
-      seasonAdjusted = "summerlist";
+      seasonAdjusted = "summerList";
       if (price == 'cheap') {
-        summerlist[0].push(newPost);
+        summerListJSON[0] = addItem(summerListJSON[0], newPost);
+
+        summerList[0].push(newPost);
       } else if (price == 'fair') {
-        summerlist[1].push(newPost);
+        summerListJSON[1] = addItem(summerListJSON[1], newPost);
+
+        summerList[1].push(newPost);
       } else if (price == 'expensive') {
-        summerlist[2].push(newPost);
+        summerListJSON[2] = addItem(summerListJSON[2], newPost);
+        summerList[2].push(newPost);
       }
     } else if (season == 'fall') {
-      seasonAdjusted = "falllist";
+      seasonAdjusted = "fallList";
       if (price == 'cheap') {
-        falllist[0].push(newPost);
+        fallList[0] = addItem(fallList[0], newPost);
+        fallList[0].push(newPost);
       } else if (price == 'fair') {
-        falllist[1].push(newPost);
+        fallList[1] = addItem(fallList[1], newPost);
+        fallList[1].push(newPost);
       } else if (price == 'expensive') {
-        falllist[2].push(newPost);
+        fallList[2] = addItem(fallList[2], newPost);
+        fallList[2].push(newPost);
       }
     } else if (season == 'winter') {
-      seasonAdjusted = "winterlist";
+      seasonAdjusted = "winterList";
       if (price == 'cheap') {
-        falllist[0].push(newPost);
-
+        winterList[0] = addItem(winterList[0], newPost);
+        winterList[0].push(newPost);
       } else if (price == 'fair') {
-        falllist[1].push(newPost);
-
+        winterList[1] = addItem(winterList[1], newPost);
+        winterList[1].push(newPost);
       } else if (price == 'expensive') {
-        falllist[2].push(newPost);
-
+        winterList[2] = addItem(winterList[2], newPost);
+        winterList[2].push(newPost);
       }
     }
-    console.log("Spring list: "+springlist[1]);
-    if (seasonAdjusted === "springlist"){
-      window.localStorage.removeItem(seasonAdjusted);
-      console.log(localStorage);
-      localStorage.setItem('springlist', JSON.stringify(springlist));
-    }else if (seasonAdjusted === "summerlist"){
-      window.localStorage.removeItem(seasonAdjusted);
-      console.log(localStorage);
-      localStorage.setItem('summerlist', JSON.stringify(summerlist));
-    } else if (seasonAdjusted === "falllist"){
-      window.localStorage.removeItem(seasonAdjusted);
-      console.log(localStorage);
-      localStorage.setItem('falllist', JSON.stringify(falllist));
-    } else if (seasonAdjusted === "winterlist"){
-      window.localStorage.removeItem(seasonAdjusted);
-      console.log(localStorage);
-      localStorage.setItem('winterlist', JSON.stringify(winterlist));
 
+    // updating the localStorage for the new addition (newPost) based on the seasonAdjusted which is spacificed in the
+    // the code above (addition of new post)
+    if (seasonAdjusted === "springList") {
+      window.localStorage.removeItem(seasonAdjusted);
+      window.localStorage.removeItem(seasonAdjusted +"JSON");
+
+      localStorage.setItem('springList', JSON.stringify(springList));
+      localStorage.setItem('springListJSON', JSON.stringify(springListJSON));
+
+    } else if (seasonAdjusted === "summerList") {
+      window.localStorage.removeItem(seasonAdjusted);
+      window.localStorage.removeItem(seasonAdjusted +"JSON");
+
+      localStorage.setItem('summerList', JSON.stringify(summerList));
+      localStorage.setItem('summerListJSON', JSON.stringify(summerListJSON));
+    } else if (seasonAdjusted === "fallList") {
+      window.localStorage.removeItem(seasonAdjusted);
+      window.localStorage.removeItem(seasonAdjusted +"JSON");
+
+      localStorage.setItem('fallList', JSON.stringify(fallList));
+      localStorage.setItem('fallListJSON', JSON.stringify(fallListJSON));
+    } else if (seasonAdjusted === "winterList") {
+      window.localStorage.removeItem(seasonAdjusted);
+      window.localStorage.removeItem(seasonAdjusted +"JSON");
+
+      localStorage.setItem('winterList', JSON.stringify(winterList));
+      localStorage.setItem('winterListJSON', JSON.stringify(winterListJSON));
     }
   }
-  //based on that new addition the data is now re-stored so it has the new event in the lists to be later called upon
-  if (document.cookie.includes("c=1")) {
-    localStorage.setItem('springlist', springlist);
-    localStorage.setItem('summerlist', summerlist);
-    localStorage.setItem('falllist', falllist);
-    localStorage.setItem('winterlist', winterlist);
-  }
+
 
 
   // to be used to see what list we want to use
@@ -456,46 +516,46 @@ function loadPage(newPost, season, price) {
     if (localStorage.getItem("spring") == "true") {
       if (localStorage.getItem("cheap") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the spring for a low cost";
-        use = springlist[0];
+        use = springList[0];
       } else if (localStorage.getItem("fair") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the spring for a fair cost";
-        use = springlist[1];
+        use = springList[1];
       } else if (localStorage.getItem("expensive") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the spring for a shiny penny";
-        use = springlist[2];
+        use = springList[2];
       }
     } else if (localStorage.getItem("summer") == "true") {
       if (localStorage.getItem("cheap") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the summer for a low cost";
-        use = summerlist[0];
+        use = summerList[0];
       } else if (localStorage.getItem("fair") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the summer for a fair cost";
-        use = summerlist[1];
+        use = summerList[1];
       } else if (localStorage.getItem("expensive") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the summer for a shiny penny";
-        use = summerlist[2];
+        use = summerList[2];
       }
     } else if (localStorage.getItem("fall") == "true") {
       if (localStorage.getItem("cheap") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the fall for a low cost";
-        use = falllist[0];
+        use = fallList[0];
       } else if (localStorage.getItem("fair") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the fall for a fair cost";
-        use = falllist[1];
+        use = fallList[1];
       } else if (localStorage.getItem("expensive") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the fall for a shiny penny";
-        use = falllist[2];
+        use = fallList[2];
       }
     } else if (localStorage.getItem("winter") == "true") {
       if (localStorage.getItem("cheap") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the winter for a low cost";
-        use = winterlist[0];
+        use = winterList[0];
       } else if (localStorage.getItem("fair") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the winter for a fair cost";
-        use = winterlist[1];
+        use = winterList[1];
       } else if (localStorage.getItem("expensive") == "true") {
         document.getElementById("resultsTitle").innerHTML = "Things to do in the winter for a shiny penny";
-        use = winterlist[2];
+        use = winterList[2];
       }
     }
 
@@ -509,8 +569,6 @@ function loadPage(newPost, season, price) {
   function buildpage(use) {
     if (window.location.href.indexOf("results.html") != -1) {
       var nums = [];
-
-
       // picks events randomly to set to the site
       for (let i = 0; i < 4; i++) {
         let a = Math.floor(Math.random() * ((use.length - 1) - 0 + 1)) + 0;
@@ -531,53 +589,82 @@ function loadPage(newPost, season, price) {
 
 
 
-  document.cookie = "c=1";
 
 
-function checkIfIn(post){
-  var springlist = localStorage.getItem('springlist', springlist);
-  var summerlist = localStorage.getItem('summerlist', summerlist);
-  var falllist = localStorage.getItem('falllist', falllist);
-  var winterlist = localStorage.getItem('winterlist', winterlist);
+function checkIfIn(post) {
+  var springList = localStorage.getItem('springList', springList);
+  var summerList = localStorage.getItem('summerList', summerList);
+  var fallList = localStorage.getItem('fallList', fallList);
+  var winterList = localStorage.getItem('winterList', winterList);
   console.log("in check");
-  springlist = JSON.parse(localStorage.getItem('springlist'));
-  for (var row = 0; row < springlist.length; row++) {
-    for (var col = 0; col < springlist[row].length; col++) {
-      springlist[row][col] = new Post(springlist[row][col]._name, springlist[row][col]._info, springlist[row][col]._imageLocation, springlist[row][col]._webLink, springlist[row][col]._linkCaption, springlist[row][col]._imageCaption);
-      if(springlist[row][col]._name == post){
+  springList = JSON.parse(localStorage.getItem('springList'));
+  for (var row = 0; row < springList.length; row++) {
+    for (var col = 0; col < springList[row].length; col++) {
+      springList[row][col] = new Post(springList[row][col]._name, springList[row][col]._info, springList[row][col]._imageLocation, springList[row][col]._webLink, springList[row][col]._linkCaption, springList[row][col]._imageCaption);
+      if (springList[row][col]._name == post) {
         return false;
       }
     }
   }
 
-  summerlist = JSON.parse(localStorage.getItem('summerlist'));
-  for (var row = 0; row < summerlist.length; row++) {
-    for (var col = 0; col < summerlist[row].length; col++) {
-      summerlist[row][col] = new Post(summerlist[row][col]._name, summerlist[row][col]._info, summerlist[row][col]._imageLocation, summerlist[row][col]._webLink, summerlist[row][col]._linkCaption, summerlist[row][col]._imageCaption);
-      if(summerlist[row][col]._name == post){
+  summerList = JSON.parse(localStorage.getItem('summerList'));
+  for (var row = 0; row < summerList.length; row++) {
+    for (var col = 0; col < summerList[row].length; col++) {
+      summerList[row][col] = new Post(summerList[row][col]._name, summerList[row][col]._info, summerList[row][col]._imageLocation, summerList[row][col]._webLink, summerList[row][col]._linkCaption, summerList[row][col]._imageCaption);
+      if (summerList[row][col]._name == post) {
         return false;
       }
     }
   }
 
-  falllist = JSON.parse(localStorage.getItem('falllist'));
-  for (var row = 0; row < falllist.length; row++) {
-    for (var col = 0; col < falllist[row].length; col++) {
-      falllist[row][col] = new Post(falllist[row][col]._name, falllist[row][col]._info, falllist[row][col]._imageLocation, falllist[row][col]._webLink, falllist[row][col]._linkCaption, falllist[row][col]._imageCaption);
-      if(falllist[row][col]._name == post){
+  fallList = JSON.parse(localStorage.getItem('fallList'));
+  for (var row = 0; row < fallList.length; row++) {
+    for (var col = 0; col < fallList[row].length; col++) {
+      fallList[row][col] = new Post(fallList[row][col]._name, fallList[row][col]._info, fallList[row][col]._imageLocation, fallList[row][col]._webLink, fallList[row][col]._linkCaption, fallList[row][col]._imageCaption);
+      if (fallList[row][col]._name == post) {
         return false;
       }
     }
   }
 
-  winterlist = JSON.parse(localStorage.getItem('winterlist'));
-  for (var row = 0; row < winterlist.length; row++) {
-    for (var col = 0; col < winterlist[row].length; col++) {
-      winterlist[row][col] = new Post(winterlist[row][col]._name, winterlist[row][col]._info, winterlist[row][col]._imageLocation, winterlist[row][col]._webLink, winterlist[row][col]._linkCaption, winterlist[row][col]._imageCaption);
-      if(winterlist[row][col]._name == post){
+  winterList = JSON.parse(localStorage.getItem('winterList'));
+  for (var row = 0; row < winterList.length; row++) {
+    for (var col = 0; col < winterList[row].length; col++) {
+      winterList[row][col] = new Post(winterList[row][col]._name, winterList[row][col]._info, winterList[row][col]._imageLocation, winterList[row][col]._webLink, winterList[row][col]._linkCaption, winterList[row][col]._imageCaption);
+      if (winterList[row][col]._name == post) {
         return false;
       }
     }
   }
   return true;
+}
+
+function Create2DArray(rows) {
+  var arr = [];
+
+  for (var i = 0; i < rows; i++) {
+    arr[i] = [];
+  }
+
+  return arr;
+}
+
+function printArray(array) {
+  for (var i = 0; i < array.length; i++) {
+    console.log(array[i]);
+  }
+}
+
+function addItem(array, item) {
+  console.log("adding item: " + item + " to array : " + array);
+  array.push({
+    name: item._name,
+    info: item._info,
+    imageLocation: item._imageLocation,
+    webLink: item._webLink,
+    linkCaption: item._linkCaption,
+    imageCaption: item._imageCaption
+  });
+
+  return array;
 }
