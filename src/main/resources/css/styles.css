@@ -1,0 +1,529 @@
+
+
+/*
+  Main color ways:
+  #c9c9c9
+  #e3e3e3
+  #9ad3de
+  #89bdd3
+
+*/
+
+* {
+margin: 0;
+padding: 0;
+}
+
+#frontPage{
+    background-color: #c9c9c9;
+    height: 100vh;
+    z-index: 100;
+    font-size: 10vw;
+    color: #e3e3e3;
+    display: flex;
+    justify-content: center;
+    padding: 10vh 10vw 25vh 10vw;
+    margin: 0px;
+}
+#messageFront1{
+  color: #bb6b6b;
+}
+#messageFront2{
+  color: #bb6b6b;
+  display: none;
+}
+#messageFront3{
+  color: #bb6b6b;
+  display: none;
+}
+
+#sideButton{
+   display: none;
+}
+
+.seasons{
+  display: flex;
+}
+
+.prices{
+  display: flex;
+}
+
+.seasonBlocks{
+  transition: transform .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font: 5vw impact, sans-serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.priceBlocks{
+  transition: transform .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font: 5vw impact, sans-serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+#springDiv{
+  color: white;
+  text-decoration: none;
+  background: url('../images/spring.gif');
+  background-size: cover;
+  animation: spring 3s infinite steps(1);
+  animation-play-state: runnning;
+}
+@keyframes spring {
+  1%   { background-image: url('../images/springIndv/frame_00_delay-0.01s.gif'); }
+  3%   { background-image: url('../images/springIndv/frame_01_delay-0.01s.gif'); }
+  6%   { background-image: url('../images/springIndv/frame_02_delay-0.01s.gif'); }
+  9%   { background-image: url('../images/springIndv/frame_03_delay-0.01s.gif'); }
+  12%   { background-image: url('../images/springIndv/frame_04_delay-0.01s.gif'); }
+  13%   { background-image: url('../images/springIndv/frame_05_delay-0.01s.gif'); }
+  15%   { background-image: url('../images/springIndv/frame_06_delay-0.01s.gif'); }
+  18%   { background-image: url('../images/springIndv/frame_07_delay-0.01s.gif'); }
+  21%   { background-image: url('../images/springIndv/frame_08_delay-0.01s.gif'); }
+  24%   { background-image: url('../images/springIndv/frame_09_delay-0.01s.gif'); }
+  27%   { background-image: url('../images/springIndv/frame_10_delay-0.01s.gif'); }
+  30%   { background-image: url('../images/springIndv/frame_11_delay-0.01s.gif'); }
+  33%   { background-image: url('../images/springIndv/frame_12_delay-0.01s.gif'); }
+  36%   { background-image: url('../images/springIndv/frame_13_delay-0.01s.gif'); }
+  38%   { background-image: url('../images/springIndv/frame_14_delay-0.01s.gif'); }
+  39%   { background-image: url('../images/springIndv/frame_15_delay-0.01s.gif'); }
+  42%   { background-image: url('../images/springIndv/frame_16_delay-0.01s.gif'); }
+  45%   { background-image: url('../images/springIndv/frame_17_delay-0.01s.gif'); }
+  48%   { background-image: url('../images/springIndv/frame_18_delay-0.01s.gif'); }
+  51%   { background-image: url('../images/springIndv/frame_19_delay-0.01s.gif'); }
+  54%   { background-image: url('../images/springIndv/frame_20_delay-0.01s.gif'); }
+  55%   { background-image: url('../images/springIndv/frame_21_delay-0.01s.gif'); }
+  57%   { background-image: url('../images/springIndv/frame_22_delay-0.01s.gif'); }
+  60%   { background-image: url('../images/springIndv/frame_23_delay-0.01s.gif'); }
+  63%   { background-image: url('../images/springIndv/frame_24_delay-0.01s.gif'); }
+  66%   { background-image: url('../images/springIndv/frame_25_delay-0.01s.gif'); }
+  69%   { background-image: url('../images/springIndv/frame_26_delay-0.01s.gif'); }
+  72%   { background-image: url('../images/springIndv/frame_27_delay-0.01s.gif'); }
+  74%   { background-image: url('../images/springIndv/frame_28_delay-0.01s.gif'); }
+  76%   { background-image: url('../images/springIndv/frame_29_delay-0.01s.gif'); }
+  78%   { background-image: url('../images/springIndv/frame_30_delay-0.01s.gif'); }
+  81%   { background-image: url('../images/springIndv/frame_31_delay-0.01s.gif'); }
+  84%   { background-image: url('../images/springIndv/frame_32_delay-0.01s.gif'); }
+  87%   { background-image: url('../images/springIndv/frame_33_delay-0.01s.gif'); }
+  90%   { background-image: url('../images/springIndv/frame_34_delay-0.01s.gif'); }
+  92%   { background-image: url('../images/springIndv/frame_35_delay-0.01s.gif'); }
+  93%   { background-image: url('../images/springIndv/frame_36_delay-0.01s.gif'); }
+  96%   { background-image: url('../images/springIndv/frame_37_delay-0.01s.gif'); }
+  99%   { background-image: url('../images/springIndv/frame_38_delay-0.01s.gif'); }
+  100%   { background-image: url('../images/springIndv/frame_39_delay-0.01s.gif'); }
+}
+#springDiv:hover{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+  animation-play-state:paused;
+
+}
+
+
+#summerDiv{
+  color: white;
+  text-decoration: none;
+  background-image: url('../images/summerIndv/frame_00_delay-0.08s.gif');
+  background-size: cover;
+  animation: summer 3s infinite steps(1);
+  animation-play-state: runnning;
+}
+@keyframes summer {
+  3%   { background-image: url('../images/summerIndv/frame_00_delay-0.08s.gif'); }
+	6%   { background-image: url('../images/summerIndv/frame_01_delay-0.08s.gif'); }
+	9%   { background-image: url('../images/summerIndv/frame_02_delay-0.08s.gif'); }
+	12%   { background-image: url('../images/summerIndv/frame_03_delay-0.08s.gif'); }
+	15%   { background-image: url('../images/summerIndv/frame_04_delay-0.08s.gif'); }
+	18%   { background-image: url('../images/summerIndv/frame_05_delay-0.08s.gif'); }
+	21%   { background-image: url('../images/summerIndv/frame_06_delay-0.08s.gif'); }
+	24%   { background-image: url('../images/summerIndv/frame_07_delay-0.08s.gif'); }
+	27%   { background-image: url('../images/summerIndv/frame_08_delay-0.08s.gif'); }
+	30%   { background-image: url('../images/summerIndv/frame_09_delay-0.08s.gif'); }
+	33%   { background-image: url('../images/summerIndv/frame_10_delay-0.08s.gif'); }
+	36%   { background-image: url('../images/summerIndv/frame_11_delay-0.08s.gif'); }
+	39%   { background-image: url('../images/summerIndv/frame_12_delay-0.08s.gif'); }
+	42%   { background-image: url('../images/summerIndv/frame_13_delay-0.08s.gif'); }
+	45%   { background-image: url('../images/summerIndv/frame_14_delay-0.08s.gif'); }
+	50%   { background-image: url('../images/summerIndv/frame_15_delay-0.08s.gif'); }
+	53%   { background-image: url('../images/summerIndv/frame_16_delay-0.08s.gif'); }
+	56%   { background-image: url('../images/summerIndv/frame_17_delay-0.08s.gif'); }
+	59%   { background-image: url('../images/summerIndv/frame_18_delay-0.08s.gif'); }
+	62%   { background-image: url('../images/summerIndv/frame_19_delay-0.08s.gif'); }
+	65%   { background-image: url('../images/summerIndv/frame_20_delay-0.08s.gif'); }
+	68%   { background-image: url('../images/summerIndv/frame_21_delay-0.08s.gif'); }
+	75%   { background-image: url('../images/summerIndv/frame_22_delay-0.08s.gif'); }
+	78%   { background-image: url('../images/summerIndv/frame_23_delay-0.08s.gif'); }
+	79%   { background-image: url('../images/summerIndv/frame_24_delay-0.08s.gif'); }
+	81%   { background-image: url('../images/summerIndv/frame_25_delay-0.08s.gif'); }
+	84%   { background-image: url('../images/summerIndv/frame_26_delay-0.08s.gif'); }
+	88%   { background-image: url('../images/summerIndv/frame_27_delay-0.08s.gif'); }
+	95%   { background-image: url('../images/summerIndv/frame_28_delay-0.08s.gif'); }
+	100%   { background-image: url('../images/summerIndv/frame_29_delay-0.08s.gif'); }
+}
+#summerDiv:hover{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+  animation-play-state:paused;
+}
+
+
+#fallDiv{
+  color: white;
+  text-decoration: none;
+  background: url('../images/fallIndv/frame_00_delay-0.07s.gif') no-repeat;
+  background-size: cover;
+  animation: fall 2s infinite steps(1);
+  animation-play-state: runnning;
+}
+@keyframes fall {
+  6%   { background-image: url('../images/fallIndv/frame_00_delay-0.07s.gif'); }
+  12%   { background-image: url('../images/fallIndv/frame_01_delay-0.07s.gif'); }
+  18%   { background-image: url('../images/fallIndv/frame_02_delay-0.07s.gif'); }
+  24%   { background-image: url('../images/fallIndv/frame_03_delay-0.07s.gif'); }
+  30%   { background-image: url('../images/fallIndv/frame_04_delay-0.07s.gif'); }
+  36%   { background-image: url('../images/fallIndv/frame_05_delay-0.07s.gif'); }
+  43%   { background-image: url('../images/fallIndv/frame_06_delay-0.07s.gif'); }
+  49%   { background-image: url('../images/fallIndv/frame_07_delay-0.07s.gif'); }
+  55%   { background-image: url('../images/fallIndv/frame_08_delay-0.07s.gif'); }
+  61%   { background-image: url('../images/fallIndv/frame_09_delay-0.07s.gif'); }
+  68%   { background-image: url('../images/fallIndv/frame_10_delay-0.07s.gif'); }
+  74%   { background-image: url('../images/fallIndv/frame_11_delay-0.07s.gif'); }
+  80%   { background-image: url('../images/fallIndv/frame_12_delay-0.07s.gif'); }
+  88%   { background-image: url('../images/fallIndv/frame_13_delay-0.07s.gif'); }
+  96%   { background-image: url('../images/fallIndv/frame_14_delay-0.07s.gif'); }
+  100%   { background-image: url('../images/fallIndv/frame_15_delay-0.07s.gif'); }
+}
+#fallDiv:hover{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+  animation-play-state:running;  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+  animation-play-state:paused;
+}
+
+
+#winterDiv{
+  color: white;
+  text-decoration: none;
+  background: url('../images/winterIndv/frame_00_delay-0.06s.gif') ;
+  background-size: cover;
+  animation: winter 2s infinite steps(1);
+  animation-play-state: runnning;
+}
+@keyframes winter {
+1%   { background-image: url('../images/winterIndv/frame_00_delay-0.06s.gif'); }
+5%   { background-image: url('../images/winterIndv/frame_01_delay-0.06s.gif'); }
+10%   { background-image: url('../images/winterIndv/frame_02_delay-0.06s.gif'); }
+15%   { background-image: url('../images/winterIndv/frame_03_delay-0.06s.gif'); }
+20%   { background-image: url('../images/winterIndv/frame_04_delay-0.06s.gif'); }
+25%   { background-image: url('../images/winterIndv/frame_05_delay-0.06s.gif'); }
+30%   { background-image: url('../images/winterIndv/frame_06_delay-0.06s.gif'); }
+35%   { background-image: url('../images/winterIndv/frame_07_delay-0.06s.gif'); }
+40%   { background-image: url('../images/winterIndv/frame_08_delay-0.06s.gif'); }
+45%   { background-image: url('../images/winterIndv/frame_09_delay-0.06s.gif'); }
+50%   { background-image: url('../images/winterIndv/frame_10_delay-0.06s.gif'); }
+60%   { background-image: url('../images/winterIndv/frame_11_delay-0.06s.gif'); }
+65%   { background-image: url('../images/winterIndv/frame_12_delay-0.06s.gif'); }
+70%   { background-image: url('../images/winterIndv/frame_13_delay-0.06s.gif'); }
+75%   { background-image: url('../images/winterIndv/frame_14_delay-0.06s.gif'); }
+80%   { background-image: url('../images/winterIndv/frame_15_delay-0.06s.gif'); }
+85%   { background-image: url('../images/winterIndv/frame_16_delay-0.06s.gif'); }
+90%   { background-image: url('../images/winterIndv/frame_17_delay-0.06s.gif'); }
+95%   { background-image: url('../images/winterIndv/frame_18_delay-0.06s.gif'); }
+100%   { background-image: url('../images/winterIndv/frame_19_delay-0.06s.gif'); }
+}
+
+#winterDiv:hover{
+   box-shadow: 0 2px 4px rgba(0,0,0,.2);
+   transform: scale(1.1,1.1);
+   animation-play-state:paused;
+}
+
+#expensiveDiv{
+  color: white;
+  text-decoration: none;
+  background-color: gold;
+}
+#cheapDiv{
+  color: white;
+  text-decoration: none;
+  background-color: #cd7f32;
+}
+#fairDiv{
+  color: white;
+  text-decoration: none;
+  background-color: silver;
+}
+#cheapDiv:hover, #fairDiv:hover, #expensiveDiv:hover{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  transform: scale(1.1,1.1);
+}
+
+
+
+.navbar{
+  display: flex;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  justify-content: left;
+  background-color: #c9c9c9;
+  border-radius: 4px;
+  font: 3vw impact, sans-serif;;
+}
+
+.home-link{
+  text-decoration: none;
+}
+.home-link:hover{
+  color: white;
+}
+
+
+button,  #resetButton{
+   padding: 2vh 4vw 2vh 4vw;
+   margin: 2vh 4vw 2vh 4vw;
+   font-size: 1em;
+   border: solid;
+   background-color: white;
+   box-sizing: border-box;
+   color: black;
+   border-radius: 4px;
+   transition: all 200ms ease-in-out;
+   cursor: pointer;
+}
+
+button:hover, #resetButton:hover {
+   border-color: var(--light);
+   background-color: grey;
+}
+
+
+
+#formName, #formDescription, #formImg, #formImgDescription, #formWebsite, #seasonSelector, #priceSelector {
+  padding: 2vh 4vw 2vh 4vw;
+  margin: 2vh 4vw 2vh 4vw;
+  margin: 10px;
+  width: 80%;
+  border-radius: 4px;
+  text-overflow: wrap;
+  border: solid;
+  border-color: black;
+}
+
+#formDescription
+{
+  display: inline-block;
+}
+
+#seasonSelector, #priceSelector
+{
+  width: 45%;
+}
+
+input {
+    text-align: center;
+}
+
+.activity, .form {
+  margin: 5vh 10vw 5vh 10vw;
+  background-color: #c9c9c9;
+  border: solid black;
+  border-radius: 5px;
+  overflow-wrap: break-word;
+  animation-duration: 0.85s;
+  animation-name: appear;
+}
+
+@keyframes appear {
+   from,
+   20%,
+   40%,
+   60%,
+   80%,
+   to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+   }
+
+   0% {
+      opacity: 0;
+      transform: scale3d(0.4, 0.4, 0.4);
+   }
+
+   20% {
+      transform: scale3d(1.0, 1.0, 1.0);
+   }
+
+   40% {
+      transform: scale3d(0.8, 0.8, 0.8);
+   }
+
+   60% {
+      opacity: 1;
+      transform: scale3d(1.03, 1.03, 1.03);
+   }
+
+   80% {
+      transform: scale3d(0.87, 0.87, 0.87);
+   }
+
+   to {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+   }
+}
+
+.activity ul, .form {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.activity-title {
+  text-decoration: none;
+}
+.activity-title:hover {
+  color: white;
+}
+
+.activity-image{
+  margin: 1vh 1vw 1vh 1vw;
+  width: 80%;
+  height: auto;
+  border-radius: 2px;
+  border-style: solid;
+}
+
+
+
+.container h1, p {
+  padding-top: 5vh;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  overflow-wrap: break-word;
+}
+
+body {
+  background-color: #e3e3e3;
+}
+
+h2{
+  color: #bb6b6b;
+}
+
+h1 > a{
+  color: #bb6b6b;
+}
+
+div > a{
+  color: #bb6b6b;
+}
+
+div > h1{
+  color: #bb6b6b;
+}
+div > p{
+  color: #bb6b6b;
+}
+/* Desktop View */
+@media only screen and (min-width: 999px) {
+  .seasons{
+    flex-direction: row;
+  }
+  .seasonBlocks{
+    height: 100vh;
+    width: 25vw;
+  }
+
+  .prices{
+    flex-direction: row;
+  }
+  .priceBlocks{
+    height: 100vh;
+    width: 33.33vw;
+  }
+
+  .activity ul, .form{
+    flex-direction: row;
+    padding: 0px 2vw 0px 2vw;
+  }
+
+  .activity li{
+    width: 33.33%;
+    height: auto;
+  }
+}
+
+/* Mobile View */
+@media only screen and (max-width: 399px) {
+  .seasons{
+    flex-direction: column;
+  }
+  .seasonBlocks{
+    height: 25vh;
+    width: 100vw;
+  }
+
+  .prices{
+    flex-direction: column;
+  }
+  .priceBlocks{
+    height: 33.33vh;
+    width: 100vw;
+  }
+
+  .activity ul, .form{
+    flex-direction: column;
+    padding: 2vh 2vw 2vh 2vw;
+  }
+  .activity li{
+    padding: 10px 0px 10px 0px;
+    height: 33.33%;
+    width: auto;
+  }
+  #seasonSelector, #priceSelector
+  {
+    width: inherit;
+  }
+}
+
+/* Tablet View */
+@media only screen and (max-width: 998px) and (min-width: 400px) {
+  .seasons{
+    flex-direction: column;
+  }
+  .seasonBlocks{
+    height: 25vh;
+    width: 100vw;
+  }
+
+  .prices{
+    flex-direction: column;
+  }
+  .priceBlocks{
+    height: 33.33vh;
+    width: 100vw;
+  }
+
+  .activity ul, .form{
+    flex-direction: column;
+    padding: 2vh 2vw 2vh 2vw;
+  }
+  .activity li{
+    padding: 10px 0px 10px 0px;
+    height: 33.33%;
+    width: auto;
+  }
+}

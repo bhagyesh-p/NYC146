@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bhagyesh</groupId>
+    <artifactId>NYC146WithSpring</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>com.ups.ops.cipe.parent</groupId>
+        <artifactId>cipe-parent</artifactId>
+        <version>2.1.0</version>
+    </parent>
+    <licenses>
+        <license>
+            <comments>
+                NOTICE: Confidential, unpublished property of United Parcel Service. Use and distribution limited
+                solely to authorized personnel. The use, disclosure, reproduction, modification, transfer, or
+                transmittal of this work for any purpose in any form or by any means without the written permission of
+                United Parcel Service is strictly prohibited.
+
+                Copyright (c) 2016-2017, United Parcel Service of America, Inc.
+
+                All Rights Reserved.
+            </comments>
+        </license>
+    </licenses>
+
+    <properties>
+        <snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>UPSDevArtifacts</id>
+            <name>UPSDev Artifacts</name>
+            <url>https://nexusrmps.njrar.us.ups.com:8443/repository/UPSDevArtifacts</url>
+            <layout>default</layout>
+        </repository>
+
+        <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>UPSDevArtifacts</id>
+            <name>UPSDev Artifacts</name>
+            <url>https://nexusrmps.njrar.us.ups.com:8443/repository/UPSDevArtifacts</url>
+            <layout>default</layout>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>UPS Maven Centeral Repositories</id>
+            <name>UPS Maven Centeral Repositories</name>
+            <url>https://nexusrm.ups.com:8443/repository/ups-proxy/</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>UPS Internal Repositories</id>
+            <name>UPS Internal Repositories</name>
+            <url>https://nexusrm.ups.com:8443/repository/ups-releases/</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>UPS Internal Third Party Repositories</id>
+            <name>UPS Internal Third Party Repositories</name>
+            <url>https://nexusrm.ups.com:8443/repository/ups-third-party/</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>UPS Maven Central Plugin Repositories</id>
+            <url>https://nexusrm.ups.com:8443/repository/ups-proxy</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>UPS Internal Plugin Repositories</id>
+            <url>https://nexusrm.ups.com:8443/repository/ups-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger-ui.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-couchbase</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-integration</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-jms</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.qpid</groupId>
+            <artifactId>qpid-jms-client</artifactId>
+            <version>${qpid-jms-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-pool</artifactId>
+            <version>${activemq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpasyncclient</artifactId>
+            <version>${httpasyncclient.version}</version>
+        </dependency>
+        <!-- Testing -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180813</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin.external.google</groupId>
+            <artifactId>android-json</artifactId>
+            <version>0.0.20131108.vaadin1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.smartystreets.api</groupId>
+            <artifactId>smartystreets-java-sdk</artifactId>
+            <version>3.3.8</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Camden.SR2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

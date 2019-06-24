@@ -1,0 +1,8 @@
+spring:
+  profiles: development
+  couchbase:
+    bootstrap-hosts: http://localhost:8080
+    bucket:
+      name: test
+      password: qwerty
+

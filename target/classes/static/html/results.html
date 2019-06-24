@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Results</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../javascript/back.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar">
+      <div>
+        <a id="back"class="home-link" href="../index.html" title="Restart Your Search">NYC146</a>
+      </div>
+    </nav>
+
+
+
+    <div class="container">
+      <h1 id="resultsTitle">Season Price-Range</h1>
+      <p>Here are your results fitting your chosen season and price range</p>
+    </div>
+
+    <div>
+      <nav>
+        <ul id="resultList">
+
+        	<li>
+              <div class="form" id='addForm'>
+              	<h2>Something not here?  Add your own activity!</h2>
+        	    <form>
+        	  	  <input
+                  type="text"
+                  name="Activity Name"
+                  id="formName"
+                  placeholder="Activity"
+                  required
+                  />
+                  <textarea id="formDescription" row="2">Type a description here. . .</textarea>
+                  <input
+                  type="text"
+                  name="Website"
+                  id="formWebsite"
+                  placeholder="URL"
+                  required
+                  />
+                  <input
+                  type="text"
+                  name="Attach an Image"
+                  id="formImg"
+                  placeholder="Location"
+                  required
+                  />
+                  <input
+                  type="text"
+                  name="Image Description"
+                  id="formImgDescription"
+                  placeholder="Image Description"
+                  required
+                  />
+                  <select id="seasonSelector">
+	                  <option value="spring">Spring</option>
+	                  <option value="summer">Summer</option>
+	                  <option value="fall">Fall</option>
+	                  <option value="winter">Winter</option>
+               	  </select>
+               	  <select id="priceSelector">
+	                  <option value="cheap">Cheap</option>
+	                  <option value="fair">Fair</option>
+	                  <option value="expensive">Expensive</option>
+               	  </select>
+
+
+
+                  <input type="reset" value="Reset" id="resetButton"/>
+                  <button>Submit Activity!</button>
+        	    </form>
+        	  </div>
+        	</li>
+
+        </ul>
+      </nav>
+    </div>
+
+  </body>
+</html>
