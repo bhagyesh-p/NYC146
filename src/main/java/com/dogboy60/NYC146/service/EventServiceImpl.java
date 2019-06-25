@@ -54,9 +54,6 @@ public class EventServiceImpl implements EventService {
                 return 1;
             }
             eventModelRepoImpl.addPost( toEventDocument(eventDetails));
-            System.out.println("========[List]==========");
-            get3Posts(eventDetails.getSeason(), eventDetails.getPrice());
-            System.out.println("==================");
             return 0;
         }
     }
@@ -104,9 +101,6 @@ public class EventServiceImpl implements EventService {
             return 9;
         }
         eventModelRepoImpl.addPost(toEventDocument(eventDetails));
-        System.out.println("========[List]==========");
-        get3Posts(eventDetails.getSeason(), eventDetails.getPrice());
-        System.out.println("==================");
         return 0;
     }
 
@@ -125,12 +119,16 @@ public class EventServiceImpl implements EventService {
                 throw new IllegalArgumentException("Error data is corrupted: " + eventDetails);
             }
         }else{
-            throw new IllegalArgumentException("Error: none of that type");
+            log.warn("none of type: " + Season + " and " + Price);
+            EventDetails eventDetails = new EventDetails();
+            eventDetails.setInfo("Null-_-Repo");
+            return eventDetails;
         }
     }
 
     @Override
     public EventDetails getEvent(String ID) {
+        System.out.println("doc: " + eventModelRepoImpl.getPost(ID));
         return toEventDetails(eventModelRepoImpl.getPost(ID));
     }
 
@@ -167,17 +165,31 @@ public class EventServiceImpl implements EventService {
         return 0;
     }
 
-    private EventDetails[] get3Posts(String Season, String Price){
+    public EventDetails[] get3Posts(String Season, String Price){
         EventDetails[] postList = new EventDetails[3];
         postList[0] = getAEvent(Season,Price);
         for(int i = 1;i<3;i++){
             List<EventDetails> list = Arrays.asList(postList);
             EventDetails temp = getAEvent(Season,Price);
+            if(temp.getInfo().equals("Null-_-Repo")){
+                log.warn("DB is Null, sending rest as null values");
+                for(int j = 0;j<3;j++){
+                    postList[j] = null;
+                }
+                return postList;
+            }
             int count = 0;
             while(list.contains(temp)){
                 if(count >20){
                     log.warn("DB too small to post 3 events?");
-                    return null;
+                    postList[i] = null;
+                }
+                if(count >50){
+                    log.warn("DB def. too small to post 3 events, sending rest as null values");
+                    for(int j = i;j<3;j++){
+                        postList[j] = null;
+                    }
+                    return postList;
                 }
                 temp = getAEvent(Season,Price);
                 count++;
@@ -186,6 +198,7 @@ public class EventServiceImpl implements EventService {
             postList[i] = temp;
             //temp remove later
             System.out.println(temp);
+
         }
         return postList;
     }
@@ -262,7 +275,6 @@ public class EventServiceImpl implements EventService {
         eventDocument.setWebLink(eventDetails.getWebLink());
         eventDocument.setLinkCaption(eventDetails.getLinkCaption());
         eventDocument.setAddress(eventDetails.getAddress());
-        eventDocument = eventModelRepoImpl.addPostViaEventDetail(eventDocument);
         return eventDocument;
     }
 

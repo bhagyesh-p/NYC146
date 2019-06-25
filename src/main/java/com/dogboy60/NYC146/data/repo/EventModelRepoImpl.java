@@ -31,6 +31,7 @@ public class EventModelRepoImpl implements EventModelCustomRepo {
     @Override
     public void addPost(EventDocument eventDocument) {
         String id = IDgenerator(eventDocument.getName(),eventDocument.getAddress());
+        eventDocument.setId(id);
         if(!this.contains(id)){
             eventModelRepo.save(eventDocument);
         }else{
@@ -61,8 +62,10 @@ public class EventModelRepoImpl implements EventModelCustomRepo {
     public EventDocument getPost(String ID) {
         EventDocument eventDocument = null;
         if(eventModelRepo.contains(ID)) {
-            JsonDocument json = bucket.get(String.valueOf(ID));
+            JsonDocument json = bucket.get(ID);
             eventDocument = JTO.convert(ID,json,EventDocument.class);
+        }else{
+            throw  new IllegalArgumentException("Item does not exist?");
         }
         return eventDocument;
     }
@@ -92,7 +95,7 @@ public class EventModelRepoImpl implements EventModelCustomRepo {
     }
 
     public String IDgenerator(String name,String address){
-        String id = name +"_"+ address.replace(",","").trim();
+        String id = name +"_"+ address.replace(",","").replaceAll("\\s+","");
         return id;
     }
 

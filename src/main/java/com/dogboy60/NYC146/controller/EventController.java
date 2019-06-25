@@ -19,7 +19,7 @@ public class EventController {
     @Autowired
     private EventService eventService;
 
-    @RequestMapping(value = "/addPost", method = RequestMethod.GET)
+    @RequestMapping(value = "/addPost", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> addPost(@RequestParam(value = "name", required = true) String name,
                                         @RequestParam(value = "info", required = true) String info,
@@ -33,39 +33,39 @@ public class EventController {
         HashMap<String, Object> params = new HashMap<String, Object>();
 
         if (name == null || name.isEmpty()) {
-            params.put("Error: ", "name is invalid");
+            params.put("Error", "name is invalid");
             return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
         }
         if (info == null || info.isEmpty()) {
-            params.put("Error: ", "info is invalid");
+            params.put("Error", "info is invalid");
             return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
         }
         if (imageLocation == null || imageLocation.isEmpty()) {
-            params.put("Error: ", "imageLocation is invalid");
+            params.put("Error", "imageLocation is invalid");
             return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
         }
         if (webLink == null || webLink.isEmpty()) {
-            params.put("Error: ", "webLink is invalid");
+            params.put("Error", "webLink is invalid");
             return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
         }
         if (linkCaption == null || linkCaption.isEmpty()) {
-            params.put("Error: ", "linkCaption is invalid");
+            params.put("Error", "linkCaption is invalid");
             return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
         }
         if (imageCaption == null || imageCaption.isEmpty()) {
-            params.put("Error: ", "imageCaption is invalid");
+            params.put("Error", "imageCaption is invalid");
             return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
         }
         if (price == null || price.isEmpty()) {
-            params.put("Error: ", "price is invalid");
+            params.put("Error", "price is invalid");
             return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
         }
         if (season == null || season.isEmpty()) {
-            params.put("Error: ", "season is invalid");
+            params.put("Error", "season is invalid");
             return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
         }
         if(address == null || address.isEmpty()){
-            params.put("Error: ", "address is invalid");
+            params.put("Error", "address is invalid");
             return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
         }
 
@@ -73,14 +73,47 @@ public class EventController {
 
         int responseNumber = eventService.createAPost(toEventDetail(eventResource));
         if(responseNumber == 0){
-            params.put("Successful:", Response(responseNumber));
+            params.put("Successful", Response(responseNumber));
+            return new ResponseEntity<>(params, HttpStatus.ACCEPTED);
         }else{
-            params.put("Error: ", Response(responseNumber));
+            params.put("Error", Response(responseNumber));
+            return new ResponseEntity<>(params, HttpStatus.CONFLICT);
         }
-        return new ResponseEntity<>(params, HttpStatus.ACCEPTED);
+
 
     }
 
+    @RequestMapping(value = "/getItems", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<?> getItems(
+                                     @RequestParam(value = "price", required = true) String price,
+                                     @RequestParam(value = "season", required = true) String season) {
+        HashMap<String, Object> params = new HashMap<String, Object>();
+
+
+        if (price == null || price.isEmpty()) {
+            params.put("Error", "price is invalid");
+            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+        }
+        if (season == null || season.isEmpty()) {
+            params.put("Error", "season is invalid");
+            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+        }
+
+        EventResource []events = toEventResources(eventService.get3Posts(season,price));
+        for(int i =0;i<3;i++){
+            if(events[i] == null){
+                System.out.println("here");
+                params.put("Error", "DB is very small on the said criteria, this is what we have");
+                params.put("data", events);
+                return new ResponseEntity<>(params, HttpStatus.ACCEPTED);
+            }
+        }
+        params.put("Successful", "DB well populated");
+        params.put("data", events);
+        return new ResponseEntity<>(params, HttpStatus.ACCEPTED);
+
+    }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> get(@PathVariable (value = "id") String ID ){
@@ -96,7 +129,7 @@ public class EventController {
         String res = Response(responseNumber);
         HashMap<String, Object> params = new HashMap<String, Object>();
         if (responseNumber != 0) {
-            params.put("Error: ", res);
+            params.put("Error", res);
         }else{
             params.put("Successful",res);
         }
@@ -107,7 +140,7 @@ public class EventController {
     public ResponseEntity<?> delete(@PathVariable("id") String ID ){
         eventService.removeEvent(eventService.getEvent(ID));
         HashMap<String, Object> params = new HashMap<String, Object>();
-        params.put("event" , "event: " + ID  + " removed");
+        params.put("event" , "event:" + ID  + " removed");
         return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
     }
 
@@ -152,10 +185,35 @@ public class EventController {
         return eventResource;
     }
 
+    public static EventResource[] toEventResources (EventDetails []eventDetails){
+        EventResource eventResources[] = new EventResource[eventDetails.length];
+        for(int i = 0 ; i < eventDetails.length;i++){
+            EventResource eventResource= new EventResource();
+            EventDetails eventDetail = eventDetails[i];
+
+            if(eventDetail == null){
+                eventResources[i] = null;
+
+            }else {
+                eventResource.setName(eventDetail.getName());
+                eventResource.setImageCaption(eventDetail.getImageCaption());
+                eventResource.setImageLocation(eventDetail.getImageLocation());
+                eventResource.setInfo(eventDetail.getInfo());
+                eventResource.setPrice(eventDetail.getPrice());
+                eventResource.setSeason(eventDetail.getSeason());
+                eventResource.setWebLink(eventDetail.getWebLink());
+                eventResource.setLinkCaption(eventDetail.getLinkCaption());
+                eventResource.setAddress(eventDetail.getAddress());
+                eventResources[i] = eventResource;
+            }
+        }
+        return eventResources;
+    }
+
     private String Response(int x) {
         switch (x) {
             case 0:
-                return "Vaild entry";
+                return "Valid entry";
             case 1:
                 return "Issue with name field";
             case 2:

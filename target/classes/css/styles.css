@@ -1,8 +1,4 @@
 
-/*
-  Ryan Adoni, Bhagyesh Patel, Chris Tan, Rohan Krishnakumar
-  I pledge my honor that I have abided by the Stevens Honor System.
-*/
 
 /*
   Main color ways:
@@ -313,7 +309,7 @@ button:hover, #resetButton:hover {
 
 
 
-#formName, #formDescription, #formImg, #formImgDescription, #formWebsite, #seasonSelector, #priceSelector {
+#formName, #formDescription, #formImg, #formImgDescription, #formWebsite, #seasonSelector, #priceSelector, #formLocation {
   padding: 2vh 4vw 2vh 4vw;
   margin: 2vh 4vw 2vh 4vw;
   margin: 10px;

@@ -16,6 +16,8 @@ public interface EventService {
 
     EventDetails getAEvent(String Season, String Price);
 
+    EventDetails[] get3Posts(String Season, String Price);
+
     EventDetails getEvent(String ID);
 
     int validatePostData(EventDetails eventDetails);
