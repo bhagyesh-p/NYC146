@@ -265,7 +265,7 @@ function loadPage(newPost, season, price) {
       }
       buildpage(use);
     }
-  }
+  }//
   xhr.open('GET', link, true);
   xhr.send(null);
 

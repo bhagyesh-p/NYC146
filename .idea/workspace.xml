@@ -91,8 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/javascript/back.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="255" column="26" selection-start-line="255" selection-start-column="26" selection-end-line="255" selection-end-column="26" />
+            <state relative-caret-position="271">
+              <caret line="267" column="5" selection-start-line="267" selection-start-column="5" selection-end-line="267" selection-end-column="5" />
               <folding>
                 <element signature="n#!!block;n#addToDB#0" />
                 <element signature="n#!!block;n#Create2DArray#0" />
@@ -571,12 +571,12 @@
       <workItem from="1561142263451" duration="1451000" />
       <workItem from="1561379944018" duration="5579000" />
       <workItem from="1561467925860" duration="25324000" />
-      <workItem from="1561553638392" duration="12190000" />
+      <workItem from="1561553638392" duration="12854000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141351000" />
+    <option name="totallyTimeSpent" value="142015000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -614,7 +614,7 @@
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32719395" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="15" sideWeight="0.49878544" visible="true" weight="0.4918919" />
+      <window_info anchor="bottom" id="Run Dashboard" order="15" sideWeight="0.49878544" weight="0.4918919" />
       <window_info anchor="bottom" id="Duplicates" order="16" weight="0.32938644" />
       <window_info anchor="bottom" id="Inspection Results" order="17" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1115,8 +1115,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/javascript/back.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="255" column="26" selection-start-line="255" selection-start-column="26" selection-end-line="255" selection-end-column="26" />
+        <state relative-caret-position="271">
+          <caret line="267" column="5" selection-start-line="267" selection-start-column="5" selection-end-line="267" selection-end-column="5" />
           <folding>
             <element signature="n#!!block;n#addToDB#0" />
             <element signature="n#!!block;n#Create2DArray#0" />
