@@ -91,27 +91,12 @@ function handleFormSubmit(event) {
   var post = new Post(formName, formDescription, formImg, formWebsite, "CLICK THIS TO GO TO WEBSITE", formImgDescription,location);
   let seas = document.getElementById("resultsTitle").innerHTML;
 
-  //TODO: add the post to the DB / check if its valid resp. etc
-  if (seas.includes(season)) {
-    if (seas.includes("low") && price.includes("cheap")) {
+
+
       var serverResp =addToDB(post,season,price);
       if(serverResp == 0){
         post.build();
       }
-    } else if (seas.includes("fair") && price.includes("fair")) {
-      var serverResp =addToDB(post,season,price);
-      if(serverResp == 0){
-        post.build();
-      }
-    } else if (seas.includes("shiny") && price.includes("expensive")) {
-      var serverResp =addToDB(post,season,price);
-      if(serverResp == 0){
-        post.build();
-      }
-    }
-  } else {
-    alert("Sorry Event is already there");
-  }
   loadPage(post, season, price);
 }
 
@@ -260,13 +245,25 @@ function loadPage(newPost, season, price) {
   // object post, that stores info like name,pic,link,des etc
   var use = [];
   var link= "http://localhost:8080/post/getItems/?price="+price+"&season="+season+"";
+  var use = [];
 
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState == XMLHttpRequest.DONE) {
       console.log(xhr.responseText);
       var data = JSON.parse(xhr.responseText);
-      console.log(data.data);
+      if(data.Error!== "undefined") {
+        if (data.Error && data.Error.includes("DB is very small on the said criteria, this is what we have") ) {
+          alert(data.Error + " the DB maybe empty so add your own events if you would like to.");
+        }
+      }
+      for(let i = 0;i<data.data.length;i++){
+        if(data.data[i] !== null){
+          use[i]= new Post(data.data[i].name,data.data[i].info,data.data[i].imageLocation,data.data[i].webLink,data.data[i].linkCaption,data.data[i].imageLocation,data.data[i].address);
+
+        }
+      }
+      buildpage(use);
     }
   }
   xhr.open('GET', link, true);
@@ -274,7 +271,6 @@ function loadPage(newPost, season, price) {
 
     // based on that list we build the site via the build func in the
     // post class
-    //buildpage(use);
 
 }
 
@@ -282,20 +278,9 @@ function loadPage(newPost, season, price) {
 
   function buildpage(use) {
     if (window.location.href.indexOf("results.html") != -1) {
-      var nums = [];
-      // picks events randomly to set to the site
-      for (let i = 0; i < 4; i++) {
-        let a = Math.floor(Math.random() * ((use.length - 1) - 0 + 1)) + 0;
-        //if the event is in the list to be used regen a new event
-        while (nums.includes(a)) {
-          a = Math.floor(Math.random() * ((use.length - 1) - 0 + 1)) + 0;
-        }
-        // add to the list to be used
-        nums.push(a);
-      }
       //build the actual site
-      for (let i = 0; i < nums.length; i++) {
-        use[nums[i]].build();
+      for (let i = 0; i < use.length; i++) {
+        use[i].build();
       }
     }
   }

@@ -115,14 +115,6 @@ public class EventController {
 
     }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<?> get(@PathVariable (value = "id") String ID ){
-        HashMap<String, Object> params = new HashMap<String, Object>();
-        /// TODO: FIX THIS
-        params.put("event" , eventService.getEvent(ID));
-        return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
-    }
-
     @PostMapping(value = "/{id}")
     public ResponseEntity<?> post(@PathVariable("id") String ID, @RequestBody EventResource eventResource ){
         int responseNumber = eventService.createAPost(toEventDetail(eventResource));
@@ -132,6 +124,30 @@ public class EventController {
             params.put("Error", res);
         }else{
             params.put("Successful",res);
+        }
+        return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<?> get(@PathVariable (value = "id") String ID ){
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        /// TODO: FIX THIS
+        params.put("event" , eventService.getEvent(ID));
+        return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<?> post(@RequestBody EventResource eventResources[] ){
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        for(EventResource eventResource: eventResources){
+            int responseNumber = eventService.createAPost(toEventDetail(eventResource));
+            String res = Response(responseNumber);
+            if (responseNumber != 0) {
+                params.put("Error", res + " " + eventResource.getName());
+            }else{
+                params.put("Successful",res + " " + eventResource.getName());
+            }
         }
         return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
     }

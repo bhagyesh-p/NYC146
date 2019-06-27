@@ -35,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/controller/EventController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
-              <caret line="120" column="17" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="17" />
+            <state relative-caret-position="180">
+              <caret line="106" column="39" selection-start-line="106" selection-start-column="37" selection-end-line="106" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -44,18 +44,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="131" column="38" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
+            <state relative-caret-position="118">
+              <caret line="143" column="20" selection-start-line="143" selection-start-column="20" selection-end-line="143" selection-end-column="20" />
               <folding>
                 <element signature="e#1012#1020#0" />
-                <element signature="e#1363#1420#0" />
-                <element signature="e#1615#1678#1" />
                 <element signature="e#1723#1764#1" />
                 <element signature="method#updateEvent#0;class#EventServiceImpl#0" />
                 <element signature="method#createAPost#1;class#EventServiceImpl#0" />
-                <element signature="method#validatePostData#0;class#EventServiceImpl#0" />
                 <element signature="method#removeEvent#0;class#EventServiceImpl#0" />
-                <element signature="method#isValidChar#0;class#EventServiceImpl#0" />
                 <element signature="method#exists#0;class#EventServiceImpl#0" />
                 <element signature="method#toEventDetailsCollection#0;class#EventServiceImpl#0" />
                 <element signature="method#addVerf#0;class#EventServiceImpl#0" />
@@ -67,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/data/repo/EventModelRepoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+            <state relative-caret-position="469">
+              <caret line="102" lean-forward="true" selection-start-line="84" selection-start-column="35" selection-end-line="102" />
               <folding>
                 <element signature="e#827#828#0" expanded="true" />
                 <element signature="e#891#892#0" expanded="true" />
@@ -80,28 +76,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/javascript/back.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/data/model/EventDocument.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="257" selection-start-line="257" selection-end-line="257" />
+            <state relative-caret-position="887">
+              <caret line="54" column="23" selection-start-line="54" selection-end-line="55" />
               <folding>
-                <element signature="n#!!block;n#addToDB#0" />
-                <element signature="n#!!block;n#Create2DArray#0" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/App.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/javascript/back.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="8" column="44" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="44" />
+            <state relative-caret-position="67">
+              <caret line="255" column="26" selection-start-line="255" selection-start-column="26" selection-end-line="255" selection-end-column="26" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#236#237#0" expanded="true" />
-                <element signature="e#289#290#0" expanded="true" />
+                <element signature="n#!!block;n#addToDB#0" />
+                <element signature="n#!!block;n#Create2DArray#0" />
               </folding>
             </state>
           </provider>
@@ -121,7 +115,38 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/html/results.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/html/money.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/css/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1572">
+              <caret line="312" column="27" selection-start-line="312" selection-start-column="27" selection-end-line="312" selection-end-column="27" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -137,8 +162,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>id</find>
-      <find>findByName</find>
       <find>[0]</find>
       <find>ID empty</find>
       <find>6</find>
@@ -167,6 +190,8 @@
       <find>-_-</find>
       <find>item is duplicated</find>
       <find>:</find>
+      <find>undefined the DB maybe empty so add</find>
+      <find>contains</find>
     </findStrings>
     <replaceStrings>
       <replace>id</replace>
@@ -210,14 +235,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/testing/test.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/data/model/AddressModel.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/html/money.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/css/styles.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/html/results.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/data/repo/EventModelRepoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/html/results.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/html/money.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/controller/EventController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/javascript/back.js" />
       </list>
     </option>
@@ -250,11 +275,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1943" />
-    <option name="height" value="1103" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="949" />
+    <option name="width" value="980" />
+    <option name="height" value="1031" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -547,12 +571,12 @@
       <workItem from="1561142263451" duration="1451000" />
       <workItem from="1561379944018" duration="5579000" />
       <workItem from="1561467925860" duration="25324000" />
-      <workItem from="1561553638392" duration="598000" />
+      <workItem from="1561553638392" duration="12190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129759000" />
+    <option name="totallyTimeSpent" value="141351000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -564,10 +588,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="633" y="0" width="653" height="687" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4955595" visible="true" weight="0.21538462" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4955595" visible="true" weight="0.38279933" />
       <window_info id="Structure" order="1" sideWeight="0.5022625" side_tool="true" weight="0.13432837" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -585,12 +609,12 @@
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3268206" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50040483" side_tool="true" weight="0.27886322" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50121456" side_tool="true" weight="0.58792186" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32964602" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32719395" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="15" sideWeight="0.49959514" visible="true" weight="0.1793961" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="15" sideWeight="0.49878544" visible="true" weight="0.4918919" />
       <window_info anchor="bottom" id="Duplicates" order="16" weight="0.32938644" />
       <window_info anchor="bottom" id="Inspection Results" order="17" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -669,27 +693,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventServiceImpl.java</url>
-          <line>185</line>
+          <line>193</line>
           <properties />
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventServiceImpl.java</url>
-          <line>198</line>
+          <line>206</line>
           <properties />
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventServiceImpl.java</url>
-          <line>199</line>
+          <line>207</line>
           <properties />
           <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventServiceImpl.java</url>
-          <line>190</line>
+          <line>198</line>
           <properties />
           <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventServiceImpl.java</url>
+          <line>145</line>
+          <properties />
+          <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/resources/javascript/back.js</url>
@@ -703,6 +733,9 @@
         <watch expression="eventDocument.id" language="JAVA" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/NYC146WithSpring$App.ic" NAME="App Coverage Results" MODIFIED="1561581507106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -868,13 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="312" column="27" lean-forward="true" selection-start-line="312" selection-start-column="27" selection-end-line="312" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/data/model/EventResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -889,26 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="4202" column="7" lean-forward="true" selection-start-line="4202" selection-start-column="7" selection-end-line="4202" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/html/money.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/html/results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -985,16 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/data/model/EventDocument.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="18" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/data/repo/EventModelRepo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1006,48 +1002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/controller/EventController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="120" column="17" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="131" column="38" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
-          <folding>
-            <element signature="e#1012#1020#0" />
-            <element signature="e#1363#1420#0" />
-            <element signature="e#1615#1678#1" />
-            <element signature="e#1723#1764#1" />
-            <element signature="method#updateEvent#0;class#EventServiceImpl#0" />
-            <element signature="method#createAPost#1;class#EventServiceImpl#0" />
-            <element signature="method#validatePostData#0;class#EventServiceImpl#0" />
-            <element signature="method#removeEvent#0;class#EventServiceImpl#0" />
-            <element signature="method#isValidChar#0;class#EventServiceImpl#0" />
-            <element signature="method#exists#0;class#EventServiceImpl#0" />
-            <element signature="method#toEventDetailsCollection#0;class#EventServiceImpl#0" />
-            <element signature="method#addVerf#0;class#EventServiceImpl#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/data/repo/EventModelRepoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding>
-            <element signature="e#827#828#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="method#getPost#0;class#EventModelRepoImpl#0" />
-            <element signature="method#contains#0;class#EventModelRepoImpl#0" />
-            <element signature="method#contains#1;class#EventModelRepoImpl#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1073,13 +1027,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1572">
+          <caret line="312" column="27" selection-start-line="312" selection-start-column="27" selection-end-line="312" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/html/results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/html/money.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/data/model/EventDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="887">
+          <caret line="54" column="23" selection-start-line="54" selection-end-line="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/controller/EventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="106" column="39" selection-start-line="106" selection-start-column="37" selection-end-line="106" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/service/EventServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="143" column="20" selection-start-line="143" selection-start-column="20" selection-end-line="143" selection-end-column="20" />
+          <folding>
+            <element signature="e#1012#1020#0" />
+            <element signature="e#1723#1764#1" />
+            <element signature="method#updateEvent#0;class#EventServiceImpl#0" />
+            <element signature="method#createAPost#1;class#EventServiceImpl#0" />
+            <element signature="method#removeEvent#0;class#EventServiceImpl#0" />
+            <element signature="method#exists#0;class#EventServiceImpl#0" />
+            <element signature="method#toEventDetailsCollection#0;class#EventServiceImpl#0" />
+            <element signature="method#addVerf#0;class#EventServiceImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dogboy60/NYC146/data/repo/EventModelRepoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="102" lean-forward="true" selection-start-line="84" selection-start-column="35" selection-end-line="102" />
+          <folding>
+            <element signature="e#827#828#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+            <element signature="method#getPost#0;class#EventModelRepoImpl#0" />
+            <element signature="method#contains#0;class#EventModelRepoImpl#0" />
+            <element signature="method#contains#1;class#EventModelRepoImpl#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/javascript/back.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="257" selection-start-line="257" selection-end-line="257" />
+        <state relative-caret-position="67">
+          <caret line="255" column="26" selection-start-line="255" selection-start-column="26" selection-end-line="255" selection-end-column="26" />
           <folding>
             <element signature="n#!!block;n#addToDB#0" />
             <element signature="n#!!block;n#Create2DArray#0" />

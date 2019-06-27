@@ -252,6 +252,11 @@ function loadPage(newPost, season, price) {
     if (xhr.readyState == XMLHttpRequest.DONE) {
       console.log(xhr.responseText);
       var data = JSON.parse(xhr.responseText);
+      if(data.Error!== "undefined") {
+        if (data.Error && data.Error.includes("DB is very small on the said criteria, this is what we have") ) {
+          alert(data.Error + " the DB maybe empty so add your own events if you would like to.");
+        }
+      }
       for(let i = 0;i<data.data.length;i++){
         if(data.data[i] !== null){
           use[i]= new Post(data.data[i].name,data.data[i].info,data.data[i].imageLocation,data.data[i].webLink,data.data[i].linkCaption,data.data[i].imageLocation,data.data[i].address);
@@ -273,7 +278,6 @@ function loadPage(newPost, season, price) {
 
   function buildpage(use) {
     if (window.location.href.indexOf("results.html") != -1) {
-
       //build the actual site
       for (let i = 0; i < use.length; i++) {
         use[i].build();

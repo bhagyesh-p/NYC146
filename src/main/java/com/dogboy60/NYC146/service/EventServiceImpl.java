@@ -42,8 +42,8 @@ public class EventServiceImpl implements EventService {
         //Convert to Data Model
 
         //Call repository method that saves the data model (this method hides the creation of key AND calls .save)
+        eventDetails.setInfo(eventDetails.getInfo().replace(",",""));
         if(validatePostData(eventDetails)!=0){
-
             return validatePostData(eventDetails);
         }else {
             if (exists(eventDetails)) {
@@ -143,7 +143,15 @@ public class EventServiceImpl implements EventService {
         if(!eventDetails.getImageLocation().contains(".")){
             return 3;
         }
-        if(!eventDetails.getWebLink().contains(".com") ){
+        if(!eventDetails.getWebLink().contains(".com") &&
+                !eventDetails.getWebLink().contains(".org")&&
+                !eventDetails.getWebLink().contains(".net")&&
+                !eventDetails.getWebLink().contains(".us")){
+            System.out.println(eventDetails.getName());
+            System.out.println(!eventDetails.getWebLink().contains(".com"));
+            System.out.println(!eventDetails.getWebLink().contains(".org"));
+            System.out.println(!eventDetails.getWebLink().contains(".net"));
+            System.out.println(!eventDetails.getWebLink().contains(".us"));
             return 4;
         }
         if(!isValidChar(eventDetails.getLinkCaption())){
@@ -227,12 +235,22 @@ public class EventServiceImpl implements EventService {
             if('A'<=c && c<='Z') continue;
             if(c==' ') continue;
             if(c=='&') continue;
-            if(c==',') continue;
             if(c=='-') continue;
             if(c=='.') continue;
+            if(c==',') continue;
+            if(c=='\'') continue;
+            if(c=='(') continue;
+            if(c==')') continue;
+            if(c=='+') continue;
+            if(c==':') continue;
+            if(c=='$') continue;
+            if(c=='/') continue;
+            if(c=='!') continue;
+
 
             // ... insert more positive character tests here
             // If we get here, we had an invalid char, fail right away
+            System.out.println(c);
             return false;
         }
         // All seen chars were valid, succeed
