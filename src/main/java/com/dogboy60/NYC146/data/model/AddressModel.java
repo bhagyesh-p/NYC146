@@ -10,6 +10,10 @@ import org.springframework.data.couchbase.core.mapping.Document;
 @Data
 @Document
 public class AddressModel {
+    /**
+     * This model is used as a sub model as all/most POJO models use it
+     * as a address, this just helps structure and flow
+     */
     @Field
     @JsonProperty("address")
     private String address;

@@ -11,6 +11,9 @@ import org.springframework.data.couchbase.core.mapping.Document;
 @Data
 @Document
 public class EventDetails {
+    /**
+     * This object model is specific to the Service layer
+     */
 
     @Field
     @JsonProperty("name")

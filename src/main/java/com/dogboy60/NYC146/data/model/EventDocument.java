@@ -11,6 +11,9 @@ import org.springframework.data.couchbase.core.mapping.Document;
 @Data
 @Document
 public class EventDocument {
+    /**
+     * This object model is specific to the Repository layer
+     */
     @Id
     @JsonProperty("id")
     String id;

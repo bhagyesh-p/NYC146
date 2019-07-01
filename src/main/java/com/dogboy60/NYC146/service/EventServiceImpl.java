@@ -34,6 +34,12 @@ public class EventServiceImpl implements EventService {
     private EventModelRepoImpl eventModelRepoImpl;
 
     private EventModelRepo eventModelRepo;
+
+    /**
+     * This validates the data the obj model has and then passes it to the Repo. layer
+     * @param eventDetails Object model to be added
+     * @return response code
+     */
     @Override
     public int createAPost(EventDetails eventDetails) {
 
@@ -58,6 +64,10 @@ public class EventServiceImpl implements EventService {
         }
     }
 
+    /**
+     * given said document (object model) it passes to the Repo layer to be updated
+     * @param eventDetails Doc to updated to
+     */
     @Override
     public void updateEvent(EventDetails eventDetails) {
         if(validatePostData(eventDetails) == 0) {
@@ -67,6 +77,19 @@ public class EventServiceImpl implements EventService {
         }
     }
 
+    /**
+     *  Similar to the CreateAPost(EventDetails) but this one is not a object r\\
+     * @param name is the name of place/ event
+     * @param info the description of said event
+     * @param imageLocation where in the web is the image located
+     * @param webLink the link to the event/place
+     * @param linkCaption caption for link
+     * @param imageCaption caption for image
+     * @param price what price point is this event/place at
+     * @param season when can we attend this event/place
+     * @param address where is this place/ event located at
+     * @return a response code
+     */
     @Override
     public int createAPost(String name, String info, String imageLocation, String webLink, String linkCaption, String imageCaption,String season, String price,String address) {
 
@@ -104,6 +127,13 @@ public class EventServiceImpl implements EventService {
         return 0;
     }
 
+    /**
+     *  Makes a call to the Repo and gets a Colletion and
+     *  based on that will choose 1 or non (if empty)
+     * @param Season Season for the wanted event
+     * @param Price Price point of the given Event
+     * @return an Event of given event
+     */
     @Override
     public EventDetails getAEvent(String Season, String Price) {
         Collection<EventDetails> posts = toEventDetailsCollection(eventModelRepo.getPost(Season,Price));
@@ -126,12 +156,22 @@ public class EventServiceImpl implements EventService {
         }
     }
 
+    /**
+     *  Calls Repo and makes the request to retrieve the Doc
+     * @param ID of the event wanted
+     * @return event with the given ID
+     */
     @Override
     public EventDetails getEvent(String ID) {
         System.out.println("doc: " + eventModelRepoImpl.getPost(ID));
         return toEventDetails(eventModelRepoImpl.getPost(ID));
     }
 
+    /**
+     * Looks at all data points of they follow the outline
+     * @param eventDetails the object/data that needs to be vaildated
+     * @return response code of where it failed
+     */
     @Override
     public int validatePostData(EventDetails eventDetails) {
         if(!isValidChar(eventDetails.getName())){
@@ -173,25 +213,46 @@ public class EventServiceImpl implements EventService {
         return 0;
     }
 
+    /**
+     *  Gets event in sets of 3
+     * @param Season Season for the wanted event
+     * @param Price Price point of the given Event
+     * @return an array (leng = 3 max) of Event of given criteria
+     */
     public EventDetails[] get3Posts(String Season, String Price){
         EventDetails[] postList = new EventDetails[3];
         postList[0] = getAEvent(Season,Price);
+        // sets the first item in the array to a event that it got
         for(int i = 1;i<3;i++){
+            //turn the array into arrayList so we can easily check if items already exist in the list
             List<EventDetails> list = Arrays.asList(postList);
+
+            // get a temp. event that will be tested
             EventDetails temp = getAEvent(Season,Price);
+            ////TODO: have a better pointer than "Null-_-Repo"
+            //if we have info as Null-_-Repo we know for a fact that we force added that item and that
+            // the DB is empty
+
             if(temp.getInfo().equals("Null-_-Repo")){
                 log.warn("DB is Null, sending rest as null values");
+                // send all null values as DB is empty
                 for(int j = 0;j<3;j++){
                     postList[j] = null;
                 }
                 return postList;
             }
+            // start attempting adding items to the array
             int count = 0;
+            // if temp event is in the Arraylist then try to get a new Event
             while(list.contains(temp)){
+                // by point 20 loops we suspect that we have a small DB
                 if(count >20){
                     log.warn("DB too small to post 3 events?");
                     postList[i] = null;
                 }
+                // by loop 50 we know not to waste more resources and thus we must return rest of the
+                // event values as null as there are not more valid options to add to the
+                // array
                 if(count >50){
                     log.warn("DB def. too small to post 3 events, sending rest as null values");
                     for(int j = i;j<3;j++){
@@ -199,18 +260,21 @@ public class EventServiceImpl implements EventService {
                     }
                     return postList;
                 }
+                // if we are under 20/50 llops lets get another temp from the DB and test that
                 temp = getAEvent(Season,Price);
                 count++;
             }
             count=0;
+            //if all tests are passed add that to the array
             postList[i] = temp;
-            //temp remove later
-            System.out.println(temp);
-
         }
         return postList;
     }
 
+    /**
+     * Calls on Repo to  remove Event
+     * @param eventDetails the Event wanted to removed
+     */
     @Override
     public void removeEvent(EventDetails eventDetails) {
         if(eventDetails == null){
@@ -224,6 +288,11 @@ public class EventServiceImpl implements EventService {
         }
     }
 
+    /**
+     * Does the given info follow th rules set as "valid" String
+     * @param seq given String
+     * @return is the String valid
+     */
     private boolean isValidChar(CharSequence seq) {
         int len = seq.length();
         for(int i=0;i<len;i++) {
@@ -257,6 +326,11 @@ public class EventServiceImpl implements EventService {
         return true;
     }
 
+    /**
+     * call the Repo to see if it exists
+     * @param eventDetails does this document exist
+     * @return true or false based on if it exits
+     */
     private boolean exists(EventDetails eventDetails){
         Collection<EventDetails> posts = toEventDetailsCollection(eventModelRepo.findByName(eventDetails.getName()));
         System.out.println(posts);
@@ -266,6 +340,11 @@ public class EventServiceImpl implements EventService {
         return true;
     }
 
+    /**
+     *
+     * @param eventDocument want to covert to
+     * @return A converted EventDetail obj model
+     */
     public static EventDetails toEventDetails(EventDocument eventDocument){
         EventDetails eventDetails = new EventDetails();
 
@@ -281,6 +360,11 @@ public class EventServiceImpl implements EventService {
         return eventDetails;
     }
 
+    /**
+     *
+     * @param eventDetails want to covert to
+     * @return A converted EventDocument obj model
+     */
     public EventDocument toEventDocument(EventDetails eventDetails){
         EventDocument eventDocument = new EventDocument();
 
@@ -296,6 +380,11 @@ public class EventServiceImpl implements EventService {
         return eventDocument;
     }
 
+    /**
+     *
+     * @param documentCollection want to covert to documentCollection (EventDetails)
+     * @return A converted EventDetails obj model collection
+     */
     public static Collection<EventDetails> toEventDetailsCollection(Collection<EventDocument>documentCollection  ){
         Collection<EventDetails> detailsCollection = new ArrayList<>();
 
@@ -306,6 +395,11 @@ public class EventServiceImpl implements EventService {
         return detailsCollection;
     }
 
+    /**
+     * address verification
+     * @param eventDetails the object that needs address verification
+     * @return true or false based on if the address seems to be good
+     */
     private boolean addVerf(EventDetails eventDetails){
 
         /*

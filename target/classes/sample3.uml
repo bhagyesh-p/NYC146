@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="546.0" y="723.0">com.dogboy60.NYC146.data.model.EventResource</node>
+    <node x="988.0" y="1487.0">com.dogboy60.NYC146.data.model.siteModel</node>
+    <node x="815.0" y="0.0">com.dogboy60.NYC146.service.EventService</node>
+    <node x="0.0" y="1149.0">com.dogboy60.NYC146.data.model.AddressModel</node>
+    <node x="0.0" y="1487.0">com.dogboy60.NYC146.controller.ErrorHandlingController</node>
+    <node x="316.0" y="1149.0">com.dogboy60.NYC146.controller.EventController</node>
+    <node x="356.0" y="496.5">com.dogboy60.NYC146.data.repo.EventModelRepo</node>
+    <node x="1376.0" y="1149.0">com.dogboy60.NYC146.manager.CouchBaseConfig</node>
+    <node x="0.0" y="723.0">com.dogboy60.NYC146.data.model.EventDocument</node>
+    <node x="562.0" y="1487.0">com.dogboy60.NYC146.controller.ExceptionResponse</node>
+    <node x="806.0" y="1487.0">com.dogboy60.NYC146.App</node>
+    <node x="0.0" y="386.0">com.dogboy60.NYC146.data.repo.EventModelRepoImpl</node>
+    <node x="1048.0" y="723.0">com.dogboy60.NYC146.data.model.EventDetails</node>
+    <node x="208.75" y="0.0">com.dogboy60.NYC146.data.repo.EventModelCustomRepo</node>
+    <node x="887.0" y="1149.0">com.dogboy60.NYC146.manager.JsonToObject</node>
+    <node x="812.0" y="253.0">com.dogboy60.NYC146.service.EventServiceImpl</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.dogboy60.NYC146.service.EventServiceImpl" target="com.dogboy60.NYC146.service.EventService">
+      <point x="0.0" y="-212.5" />
+      <point x="0.0" y="101.5" />
+    </edge>
+    <edge source="com.dogboy60.NYC146.data.repo.EventModelRepo" target="com.dogboy60.NYC146.data.repo.EventModelCustomRepo">
+      <point x="0.0" y="-35.5" />
+      <point x="561.5" y="361.0" />
+      <point x="442.75" y="361.0" />
+      <point x="78.0" y="168.0" />
+    </edge>
+    <edge source="com.dogboy60.NYC146.data.repo.EventModelRepoImpl" target="com.dogboy60.NYC146.data.repo.EventModelCustomRepo">
+      <point x="0.0" y="-146.0" />
+      <point x="168.0" y="361.0" />
+      <point x="286.75" y="361.0" />
+      <point x="-78.0" y="168.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.20000000000000015" x="635.9999999999986" y="1925.999999999999" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

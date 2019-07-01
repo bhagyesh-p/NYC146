@@ -11,7 +11,9 @@ import org.springframework.data.couchbase.core.mapping.Document;
 @Data
 @Document
 public class EventResource {
-
+    /**
+     * This object model is specific to the Controller layer
+     */
     @Field
     @JsonProperty("name")
     String name;

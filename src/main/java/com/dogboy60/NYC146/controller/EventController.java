@@ -19,6 +19,22 @@ public class EventController {
     @Autowired
     private EventService eventService;
 
+    /**
+     * @param name is the name of place/ event
+     * @param info the description of said event
+     * @param imageLocation where in the web is the image located
+     * @param webLink the link to the event/place
+     * @param linkCaption caption for link
+     * @param imageCaption caption for image
+     * @param price what price point is this event/place at
+     * @param season when can we attend this event/place
+     * @param address where is this place/ event located at
+     * @return a response in which it tells a specific error or if it was valid
+     *
+     * this will take all params and make it a Resource model and convert to a Detail model
+     *  and then add it
+     */
+
     @RequestMapping(value = "/addPost", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> addPost(@RequestParam(value = "name", required = true) String name,
@@ -83,6 +99,11 @@ public class EventController {
 
     }
 
+    /**
+     * @param price price we want the data from
+     * @param season what season we want the data from
+     * @return returns a set of 3 items if successful and a success message, other wise it return a error code with no data
+     */
     @RequestMapping(value = "/getItems", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<?> getItems(
@@ -115,6 +136,12 @@ public class EventController {
 
     }
 
+    /**
+     *
+     * @param ID of the event that we upload, it will be override and replaced so doesnt matter what is sent here
+     * @param eventResource the json data of the Event Resource
+     * @return a response if add was successful
+     */
     @PostMapping(value = "/{id}")
     public ResponseEntity<?> post(@PathVariable("id") String ID, @RequestBody EventResource eventResource ){
         int responseNumber = eventService.createAPost(toEventDetail(eventResource));
@@ -128,6 +155,11 @@ public class EventController {
         return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
     }
 
+    /**
+     *
+     * @param ID of the event that we uploaded
+     * @return the data object(POJO) in the form of a JSON
+     */
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> get(@PathVariable (value = "id") String ID ){
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -136,6 +168,11 @@ public class EventController {
         return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
     }
 
+    /**
+     *
+     * @param eventResources the array of json data of the Event Resource
+     * @return a response if the array of data (Json) add was successful
+     */
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> post(@RequestBody EventResource eventResources[] ){
@@ -160,6 +197,12 @@ public class EventController {
         return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
     }
 
+    /**
+     *
+     * @param ID the ID of said event/place
+     * @param eventResource the json data of the Event Resource that we want to be updated to
+     * @return a response if the update was successful
+     */
     @PatchMapping(value = "/{id}")
     public ResponseEntity<?> patch(@PathVariable("id") String ID, @RequestBody EventResource eventResource ){
 
@@ -170,6 +213,11 @@ public class EventController {
         return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
     }
 
+    /**
+     * convert a EventResource to a EventDetail
+     * @param eventResource the json data of the Event Resource to be converted
+     * @return EventDetail POJO
+     */
     public static EventDetails toEventDetail(EventResource eventResource){
         EventDetails eventDetails = new EventDetails();
 
@@ -186,6 +234,11 @@ public class EventController {
         return eventDetails;
     }
 
+    /**
+     * convert EventDetail to EventResource
+     * @param eventDetails the json data of the Event Detail that will be converted
+     * @return EventResource POJO
+     */
     public static EventResource toEventResource (EventDetails eventDetails){
         EventResource eventResource= new EventResource();
 
@@ -201,6 +254,11 @@ public class EventController {
         return eventResource;
     }
 
+    /**
+     * convert array of EventDetail to array of EventResource
+     * @param eventDetails the array of Event Details that will be converted
+     * @return array of EventResources
+     */
     public static EventResource[] toEventResources (EventDetails []eventDetails){
         EventResource eventResources[] = new EventResource[eventDetails.length];
         for(int i = 0 ; i < eventDetails.length;i++){
@@ -226,6 +284,12 @@ public class EventController {
         return eventResources;
     }
 
+
+    /**
+     * based on the response code "x" you get a error message
+     * @param x this is the error code sent in by the service layer
+     * @return String Error message
+     */
     private String Response(int x) {
         switch (x) {
             case 0:
