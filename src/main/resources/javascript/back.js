@@ -122,7 +122,7 @@ function handleFormSubmit(event) {
 }
 
 function addToDB(event, season, price) {
-    var link = "http://localhost:8080/post/addPost/?name=" + event._name + "&info=" + event._info + "&imageLocation=" + event._imageLocation + "&webLink=" + event._webLink + "&linkCaption=click%20me&imageCaption=" + event._imageCaption +
+    var link = "http://localhost:8080/event/addPost/?name=" + event._name + "&info=" + event._info + "&imageLocation=" + event._imageLocation + "&webLink=" + event._webLink + "&linkCaption=click%20me&imageCaption=" + event._imageCaption +
         "&price=" + price + "&season=" + season + "&address=" + event._address + "";
 
     var xhr = new XMLHttpRequest();
@@ -144,10 +144,8 @@ function addToDB(event, season, price) {
 
 // we need onload due to the window not having a body till later,
 // which causes an issues as we want to hide the scroll background
-
 // Have most if not all the code within the onload, especially
 // if it has to do with animations
-
 //onload we hide the lodaing of the gifs as they are loaded in at 1 frame at a time which causes
 // a flashing like effect (epilepsy)
 window.onload = () => {
@@ -167,22 +165,41 @@ window.onload = () => {
     try {
         setTimeout(function() {
             fadeItem('#messageFront1', "in");
+            fadeItem('#LoginButtonIndexPageID1', "in");
         }, 1000);
         setTimeout(function() {
             fadeItem('#messageFront1', "out");
+            fadeItem('#LoginButtonIndexPageID1', "out");
+
         }, 2000);
+        setTimeout(function(){
+            $('#div1').remove();
+            $('#div2').remove();
+        },2500);
         setTimeout(function() {
             fadeItem('#messageFront2', "in");
+            fadeItem('#LoginButtonIndexPageID2', "in");
         }, 3500);
         setTimeout(function() {
             fadeItem('#messageFront2', "out");
+            fadeItem('#LoginButtonIndexPageID2', "out");
         }, 7000);
+        setTimeout(function(){
+            $('#div3').remove();
+            $('#div4').remove();
+        },7500);
         setTimeout(function() {
             fadeItem('#messageFront3', "in");
+            fadeItem('#LoginButtonIndexPageID3', "in");
         }, 8000);
         setTimeout(function() {
             fadeItem('#messageFront3', "out");
+            fadeItem('#LoginButtonIndexPageID3', "out");
         }, 11000);
+        setTimeout(function(){
+            $('#div5').remove();
+            $('#div6').remove();
+        },11500);
         setTimeout(function() {
             fadeItem('#frontPage', "out");
         }, 12000);
@@ -268,8 +285,7 @@ function loadPage(newPost, season, price) {
 
         // based on the seasons and price point we want to see events in we load the specific lists that are made of the
         // object post, that stores info like name,pic,link,des etc
-        var use = [];
-        var link = "http://localhost:8080/post/getItems/?price=" + price + "&season=" + season + "";
+        var link = "http://localhost:8080/event/getItems/?price=" + price + "&season=" + season + "";
         var use = [];
 
         // http request sent to the server in hopes that it will take it
@@ -302,8 +318,6 @@ function loadPage(newPost, season, price) {
         xhr.open('GET', link, true);
         xhr.send(null);
     }
-
-
 }
 
 
@@ -315,3 +329,30 @@ function buildpage(use) {
         }
     }
 }
+
+// for login button clicked goto the login page
+
+$(document).ready(function() {
+    $("#LoginButtonIndexPageID1").click(function(){
+        if($('#LoginButtonIndexPageID1').is(':visible')) {
+            window.location.href = "../html/LoginPage.html";
+        }
+    })
+});
+
+$(document).ready(function() {
+    $("#LoginButtonIndexPageID2").click(function(){
+        if($('#LoginButtonIndexPageID2').is(':visible')) {
+            window.location.href = "../html/LoginPage.html";
+        }
+    })
+});
+
+$(document).ready(function() {
+    $("#LoginButtonIndexPageID3").click(function(){
+        if($('#LoginButtonIndexPageID3').is(':visible')) {
+            window.location.href = "../html/LoginPage.html";
+        }
+    })
+});
+

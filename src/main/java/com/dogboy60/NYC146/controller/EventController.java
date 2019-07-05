@@ -3,7 +3,12 @@ package com.dogboy60.NYC146.controller;
 
 import com.dogboy60.NYC146.data.model.EventDetails;
 import com.dogboy60.NYC146.data.model.EventResource;
+import com.dogboy60.NYC146.data.model.ResponseModel;
 import com.dogboy60.NYC146.service.EventService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,9 +17,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
+import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/post", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/event", produces = MediaType.APPLICATION_JSON_VALUE)
+@Api(value = "EventControllerAPI",produces = MediaType.APPLICATION_JSON_VALUE)
+
 public class EventController {
     @Autowired
     private EventService eventService;
@@ -34,7 +42,8 @@ public class EventController {
      * this will take all params and make it a Resource model and convert to a Detail model
      *  and then add it
      */
-
+    @ApiOperation(value = "allows the addition of Event model data via all params")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "OK" , response = ResponseModel.class )})
     @RequestMapping(value = "/addPost", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> addPost(@RequestParam(value = "name", required = true) String name,
@@ -47,53 +56,54 @@ public class EventController {
                                         @RequestParam(value = "season", required = true) String season,
                                         @RequestParam(value = "address", required = true) String address) {
         HashMap<String, Object> params = new HashMap<String, Object>();
-
+        ResponseModel responseModel = new ResponseModel();
         if (name == null || name.isEmpty()) {
-            params.put("Error", "name is invalid");
-            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+            responseModel = new ResponseModel(false,-1,"name is invalid");
+            return new ResponseEntity<>(responseModel, HttpStatus.BAD_REQUEST);
         }
         if (info == null || info.isEmpty()) {
-            params.put("Error", "info is invalid");
-            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+            responseModel = new ResponseModel(false,-1,"info is invalid");
+            return new ResponseEntity<>(responseModel, HttpStatus.BAD_REQUEST);
         }
         if (imageLocation == null || imageLocation.isEmpty()) {
-            params.put("Error", "imageLocation is invalid");
-            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+            responseModel = new ResponseModel(false,-1,"imageLocation is invalid");
+            return new ResponseEntity<>(responseModel, HttpStatus.BAD_REQUEST);
         }
         if (webLink == null || webLink.isEmpty()) {
-            params.put("Error", "webLink is invalid");
-            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+            responseModel = new ResponseModel(false,-1,"webLink is invalid");
+            return new ResponseEntity<>(responseModel, HttpStatus.BAD_REQUEST);
         }
         if (linkCaption == null || linkCaption.isEmpty()) {
-            params.put("Error", "linkCaption is invalid");
-            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+            responseModel = new ResponseModel(false,-1,"linkCaption is invalid");
+            return new ResponseEntity<>(responseModel, HttpStatus.BAD_REQUEST);
         }
         if (imageCaption == null || imageCaption.isEmpty()) {
-            params.put("Error", "imageCaption is invalid");
-            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+            responseModel = new ResponseModel(false,-1,"imageCaption is invalid");
+            return new ResponseEntity<>(responseModel, HttpStatus.BAD_REQUEST);
         }
         if (price == null || price.isEmpty()) {
-            params.put("Error", "price is invalid");
-            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+            responseModel = new ResponseModel(false,-1,"price is invalid");
+            return new ResponseEntity<>(responseModel, HttpStatus.BAD_REQUEST);
         }
         if (season == null || season.isEmpty()) {
-            params.put("Error", "season is invalid");
-            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+            responseModel = new ResponseModel(false,-1,"season is invalid");
+            return new ResponseEntity<>(responseModel, HttpStatus.BAD_REQUEST);
         }
         if(address == null || address.isEmpty()){
-            params.put("Error", "address is invalid");
-            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+            responseModel = new ResponseModel(false,-1,"address is invalid");
+            return new ResponseEntity<>(responseModel, HttpStatus.BAD_REQUEST);
+
         }
 
         EventResource eventResource = new EventResource(name,info,imageLocation,webLink,linkCaption,imageCaption,season,price,address);
 
         int responseNumber = eventService.createAPost(toEventDetail(eventResource));
         if(responseNumber == 0){
-            params.put("Successful", Response(responseNumber));
-            return new ResponseEntity<>(params, HttpStatus.ACCEPTED);
+            responseModel = new ResponseModel(true,0,Response(responseNumber));
+            return new ResponseEntity<>(responseModel, HttpStatus.ACCEPTED);
         }else{
-            params.put("Error", Response(responseNumber));
-            return new ResponseEntity<>(params, HttpStatus.CONFLICT);
+            responseModel = new ResponseModel(false,responseNumber,Response(responseNumber));
+            return new ResponseEntity<>(responseModel, HttpStatus.CONFLICT);
         }
 
 
@@ -104,35 +114,36 @@ public class EventController {
      * @param season what season we want the data from
      * @return returns a set of 3 items if successful and a success message, other wise it return a error code with no data
      */
+    @ApiOperation(value = "get an array of items up to 3 events per turn")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "OK" , response = ResponseModel.class )})
     @RequestMapping(value = "/getItems", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<?> getItems(
                                      @RequestParam(value = "price", required = true) String price,
                                      @RequestParam(value = "season", required = true) String season) {
-        HashMap<String, Object> params = new HashMap<String, Object>();
+        ResponseModel responseModel = new ResponseModel();
 
 
         if (price == null || price.isEmpty()) {
-            params.put("Error", "price is invalid");
-            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+            responseModel = new ResponseModel(false,-1,"price is invalid");
+            return new ResponseEntity<>(responseModel, HttpStatus.BAD_REQUEST);
         }
         if (season == null || season.isEmpty()) {
-            params.put("Error", "season is invalid");
-            return new ResponseEntity<>(params, HttpStatus.BAD_REQUEST);
+            responseModel = new ResponseModel(false,-1,"season is invalid");
+            return new ResponseEntity<>(responseModel, HttpStatus.BAD_REQUEST);
         }
 
         EventResource []events = toEventResources(eventService.get3Posts(season,price));
         for(int i =0;i<3;i++){
             if(events[i] == null){
-                System.out.println("here");
-                params.put("Error", "DB is very small on the said criteria, this is what we have");
-                params.put("data", events);
-                return new ResponseEntity<>(params, HttpStatus.ACCEPTED);
+                responseModel = new ResponseModel(false,-1,"DB is very small on the said criteria, this is what we have");
+                responseModel.setData(events);
+                return new ResponseEntity<>(responseModel, HttpStatus.ACCEPTED);
             }
         }
-        params.put("Successful", "DB well populated");
-        params.put("data", events);
-        return new ResponseEntity<>(params, HttpStatus.ACCEPTED);
+        responseModel = new ResponseModel(true,0,"DB well populated");
+        responseModel.setData(events);
+        return new ResponseEntity<>(responseModel, HttpStatus.ACCEPTED);
 
     }
 
@@ -142,17 +153,21 @@ public class EventController {
      * @param eventResource the json data of the Event Resource
      * @return a response if add was successful
      */
+    @ApiOperation(value = "add an event data via the body ")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "OK" , response = ModelAndView.class )})
     @PostMapping(value = "/{id}")
     public ResponseEntity<?> post(@PathVariable("id") String ID, @RequestBody EventResource eventResource ){
+        ResponseModel responseModel = new ResponseModel();
+
         int responseNumber = eventService.createAPost(toEventDetail(eventResource));
         String res = Response(responseNumber);
-        HashMap<String, Object> params = new HashMap<String, Object>();
         if (responseNumber != 0) {
-            params.put("Error", res);
+            responseModel = new ResponseModel(false,responseNumber,res);
+
         }else{
-            params.put("Successful",res);
+            responseModel = new ResponseModel(true,responseNumber,res);
         }
-        return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
+        return new ResponseEntity<>(new ModelAndView("showMessage", (Map<String, ?>) responseModel), HttpStatus.OK);
     }
 
     /**
@@ -160,12 +175,14 @@ public class EventController {
      * @param ID of the event that we uploaded
      * @return the data object(POJO) in the form of a JSON
      */
+    @ApiOperation(value = "get an event data via the body ")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "OK" , response = ModelAndView.class )})
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> get(@PathVariable (value = "id") String ID ){
-        HashMap<String, Object> params = new HashMap<String, Object>();
+        ResponseModel responseModel = new ResponseModel(true,0,"Valid");
         /// TODO: FIX THIS
-        params.put("event" , eventService.getEvent(ID));
-        return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
+        responseModel.setData( eventService.getEvent(ID));
+        return new ResponseEntity<>(new ModelAndView("showMessage", (Map<String, ?>) responseModel), HttpStatus.OK);
     }
 
     /**
@@ -173,28 +190,32 @@ public class EventController {
      * @param eventResources the array of json data of the Event Resource
      * @return a response if the array of data (Json) add was successful
      */
+    @ApiOperation(value = "get an event data via the body ")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "OK" , response = ModelAndView.class )})
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> post(@RequestBody EventResource eventResources[] ){
-        HashMap<String, Object> params = new HashMap<String, Object>();
+        ResponseModel responseModel = new ResponseModel();
         for(EventResource eventResource: eventResources){
             int responseNumber = eventService.createAPost(toEventDetail(eventResource));
             String res = Response(responseNumber);
             if (responseNumber != 0) {
-                params.put("Error", res + " " + eventResource.getName());
+                responseModel = new ResponseModel(false,responseNumber,res);
             }else{
-                params.put("Successful",res + " " + eventResource.getName());
+                responseModel = new ResponseModel(true,responseNumber,res);
             }
         }
-        return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
+        return new ResponseEntity<>(new ModelAndView("showMessage", (Map<String, ?>) responseModel), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
+    @ApiOperation(value = "delete an event data via the body ")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "OK" , response = ModelAndView.class )})
     public ResponseEntity<?> delete(@PathVariable("id") String ID ){
         eventService.removeEvent(eventService.getEvent(ID));
-        HashMap<String, Object> params = new HashMap<String, Object>();
-        params.put("event" , "event:" + ID  + " removed");
-        return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
+        ResponseModel responseModel = new ResponseModel(true,0,"valid");
+        responseModel.setData("event:" + ID  + " removed");
+        return new ResponseEntity<>(new ModelAndView("showMessage", (Map<String, ?>) responseModel), HttpStatus.OK);
     }
 
     /**
@@ -204,13 +225,15 @@ public class EventController {
      * @return a response if the update was successful
      */
     @PatchMapping(value = "/{id}")
+    @ApiOperation(value = "update an event data via the body ")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "OK" , response = ModelAndView.class )})
     public ResponseEntity<?> patch(@PathVariable("id") String ID, @RequestBody EventResource eventResource ){
 
         ///TODO: remove ID???
         eventService.updateEvent(toEventDetail(eventResource));
-        HashMap<String, Object> params = new HashMap<String, Object>();
-        params.put("Event" , "Event: " + ID  + " updated");
-        return new ResponseEntity<>(new ModelAndView("showMessage", params), HttpStatus.OK);
+        ResponseModel responseModel = new ResponseModel(true,0,"valid");
+        responseModel.setData("Event: " + ID  + " updated");
+        return new ResponseEntity<>(new ModelAndView("showMessage", (Map<String, ?>) responseModel), HttpStatus.OK);
     }
 
     /**

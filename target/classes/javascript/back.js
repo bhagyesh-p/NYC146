@@ -10,9 +10,9 @@ class Post {
 
 
     constructor(name, info, imageLocation, webLink, linkCaption, imageCaption, address) {
-        this._name = name,
-            this._info = info,
-            this._imageLocation = imageLocation,
+        this._name = name;
+            this._info = info;
+            this._imageLocation = imageLocation;
             this._webLink = webLink;
         this._linkCaption = linkCaption;
         this._imageCaption = imageCaption;
@@ -122,7 +122,7 @@ function handleFormSubmit(event) {
 }
 
 function addToDB(event, season, price) {
-    var link = "http://localhost:8080/post/addPost/?name=" + event._name + "&info=" + event._info + "&imageLocation=" + event._imageLocation + "&webLink=" + event._webLink + "&linkCaption=click%20me&imageCaption=" + event._imageCaption +
+    var link = "http://localhost:8080/event/addPost/?name=" + event._name + "&info=" + event._info + "&imageLocation=" + event._imageLocation + "&webLink=" + event._webLink + "&linkCaption=click%20me&imageCaption=" + event._imageCaption +
         "&price=" + price + "&season=" + season + "&address=" + event._address + "";
 
     var xhr = new XMLHttpRequest();
@@ -268,8 +268,7 @@ function loadPage(newPost, season, price) {
 
         // based on the seasons and price point we want to see events in we load the specific lists that are made of the
         // object post, that stores info like name,pic,link,des etc
-        var use = [];
-        var link = "http://localhost:8080/post/getItems/?price=" + price + "&season=" + season + "";
+        var link = "http://localhost:8080/event/getItems/?price=" + price + "&season=" + season + "";
         var use = [];
 
         // http request sent to the server in hopes that it will take it

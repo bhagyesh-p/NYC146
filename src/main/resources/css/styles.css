@@ -21,9 +21,27 @@ padding: 0;
     font-size: 10vw;
     color: #e3e3e3;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 10vh 10vw 25vh 10vw;
     margin: 0px;
+
+}
+
+.part1{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.part2{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 75px;
+  width: 300px;
+  padding-top: .25em;
+  align-self: center;
 }
 #messageFront1{
   color: #bb6b6b;
@@ -36,6 +54,8 @@ padding: 0;
   color: #bb6b6b;
   display: none;
 }
+
+
 
 #sideButton{
    display: none;
@@ -301,13 +321,73 @@ button,  #resetButton{
    transition: all 200ms ease-in-out;
    cursor: pointer;
 }
+#LoginButtonIndexPageID1{
+  display: unset;
+  height: 75px;
+  width: 300px;
+  font-size:large;
+  margin:unset;
+  padding: unset;
+  transition: none;
+}
+
+#LoginButtonIndexPageID2{
+  display: none;
+  height: 75px;
+  width: 300px;
+  font-size:large;
+  margin:unset;
+  padding: unset;
+  transition: none;}
+
+#LoginButtonIndexPageID3{
+  display: none;
+  height: 75px;
+  width: 300px;
+  font-size:large;
+  margin:unset;
+  padding: unset;
+  transition: none;
+}
+
+
+#LoginButtonID,#SignUpButtonID{
+  padding: 2vh 2vw 2vh 2vw;
+  margin: 2vh 1vw 2vh 1vw;
+  font-size: 1em;
+  border: solid;
+  background-color: white;
+  box-sizing: border-box;
+  color: black;
+  border-radius: 4px;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+  width: 40%;
+}
+#LoginPageInfo{
+  margin: 2vh 4vw 2vh 4vw;
+  text-align: center;
+
+}
 
 button:hover, #resetButton:hover {
    border-color: var(--light);
    background-color: grey;
 }
 
+#UserNameID{
+  white-space:nowrap;
+}
 
+#UserNameID, #PasswordID{
+  padding: 2vh 4vw 2vh 4vw;
+  margin: 2vh 4vw 2vh 4vw;
+  margin: 10px;
+  border-radius: 4px;
+  text-overflow: wrap;
+  border: solid;
+  border-color: black;
+}
 
 #formName, #formDescription, #formImg, #formImgDescription, #formWebsite, #seasonSelector, #priceSelector, #formLocation {
   padding: 2vh 4vw 2vh 4vw;
@@ -408,12 +488,13 @@ input {
 
 
 .container h1, p {
-  padding-top: 5vh;
   display: flex;
   text-align: center;
   justify-content: center;
   overflow-wrap: break-word;
 }
+
+
 
 body {
   background-color: #e3e3e3;
@@ -464,6 +545,18 @@ div > p{
     width: 33.33%;
     height: auto;
   }
+
+  #div1{
+    height: 400px;
+  }
+
+  #div3{
+    height: 1600px;
+  }
+
+  #div5{
+    height: 300px;
+  }
 }
 
 /* Mobile View */
@@ -496,6 +589,27 @@ div > p{
   #seasonSelector, #priceSelector
   {
     width: inherit;
+  }
+  #div1{
+    height: 400px;
+  }
+
+  #div3{
+    height: 400px;
+  }
+
+  #div5{
+    height: 400px;
+  }
+
+  part2{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100px;
+    width: 200px;
+    padding-top: .25em;
+    margin: auto;
   }
 }
 
